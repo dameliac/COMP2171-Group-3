@@ -3,7 +3,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/psychedelic-paper-shapes-with-copy-space.jpg");
+    background-image: url("../img/pexels-skitterphoto-1122167.jpg");
     background-repeat: no-repeat;
     margin: 0px;
     padding: 0px;
@@ -20,7 +20,8 @@ body{
     justify-content: center;
     z-index:1;
     box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
-    background-color: white;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(2px);
     border-radius:15px;
     min-width: 400px;
     height:400px;
@@ -52,7 +53,7 @@ h1{
     min-width: 150px;
     border-radius: 30px;
     border-width: 0px;
-    background: linear-gradient(to bottom right, #24a0ed,#d9ed24);
+    background: linear-gradient(to bottom right, #24a0ed,#6F8FAF);
     box-shadow: 10px 10px 10px rgba(36,160,237,0.2);
     font-family: 'Montseratt', sans-serif;
 }
