@@ -1,10 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
 body{
     display: flex;
     flex-direction: column;
-    background-image:url(../img/blue-curve-background/rm222batch2-mind-03.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-color: #c4dafb;
     margin:0;
     padding:0;
     align-items: center;
@@ -23,13 +22,13 @@ body{
 }
 
 h1{
-    font-family: 'Lilita One','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:cadetblue;
+    font-family: Poppins;
+    color:#1f2937;;
     font-size: 5rem;
 }
 
 h2{
-    font-family: 'Lilita One','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Poppins;
     color:cadetblue;
     font-size: 2em;
     display: flex;
@@ -38,14 +37,14 @@ h2{
 }
 
 p{
-    font-family: "Lilita One";
+    font-family: Poppins;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 pre{
-    font-family: "Lilita One";
+    font-family: Poppins;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,8 +57,8 @@ pre{
     margin: 0 auto;
 }
 
-button {
-    background-color: #4caf50; /* Green */
+/*button {
+    background-color: #4caf50; 
     color: white;
     padding: 10px 20px;
     border: none;
@@ -68,8 +67,8 @@ button {
 }
 
 button:hover {
-    background-color: #45a049; /* Darker Green */
-}
+    background-color: #45a049; 
+}*/
 
 #confirmationMessage {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

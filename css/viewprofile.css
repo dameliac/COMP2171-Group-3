@@ -97,32 +97,10 @@
     font-weight: bolder;
   }
   
-  a {
-    text-decoration: none;
-    color: #5e72e4;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-  }
   
-  a:hover {
-    text-decoration: none;
-    color: #233dd2;
-  }
   
-  a:not([href]):not([tabindex]) {
-    text-decoration: none;
-    color: inherit;
-  }
+ 
   
-  a:not([href]):not([tabindex]):hover,
-  a:not([href]):not([tabindex]):focus {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  a:not([href]):not([tabindex]):focus {
-    outline: 0;
-  }
   
   code {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -998,6 +976,7 @@
     border-radius: .375rem;
     background-color: #fff;
     background-clip: border-box;
+    margin-left: 500px;
   }
   
   .card>hr {

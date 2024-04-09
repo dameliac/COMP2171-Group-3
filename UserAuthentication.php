@@ -1,8 +1,8 @@
 <?php
 
-$mysqli = new mysqli("localhost", "sys", "laundry", "138users",3307);
+include "../COMP2171-Group-3/storage/sql_connect.php";
 
-require 'UserAuthenticationData.php'; 
+require '../COMP2171-Group-3/UserAuthenticationData.php'; 
 
 
 

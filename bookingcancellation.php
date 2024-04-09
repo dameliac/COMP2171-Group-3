@@ -3,7 +3,7 @@
     if (isset($_POST['time'])){
         session_start();
         $user = $_SESSION['userName'];
-        $mysqli = new mysqli("localhost", "sys", "laundry", "138users",3307);
+        require_once ("../COMP2171-Group-3/storage/sql_connect.php");
         //set days of the week to associated numbers to convert numbers from database to days
         $days = ["Sunday"=> 0, "Monday"=> 1, "Tuesday"=> 2, "Wednesday"=> 3, "Thursday"=> 4, "Friday"=> 5, "Saturday"=> 6];
         if ($mysqli->connect_error) {
@@ -91,7 +91,7 @@ if ($infoQuery->execute()){
     <link rel="stylesheet" href="css\cancel.css"/>
 </head>
 <body>
-    <h1>138 Dorm Laundry System</h1>
+    <h1>UniFresh Laundry Xpress</h1>
     <h2>Booking Cancellation</h2>
     <div id="cancellationForm">
         <!--Display the available cancellation timeslots using iter instead of number variable due to assignments not being renewed till next week for expired timeslots-->

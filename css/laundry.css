@@ -1,15 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
 body{
     display: flex;
     flex-direction: column;
-    background-image:url(../img/blue-curve-background/rm222batch2-mind-03.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-color:#c4dafb;
     margin:0;
     padding:0;
     align-items: center;
     justify-content: center;
+    font-family: Poppins;
+}
 
+header{
+    background-color: #272727;
 }
 
 #timeSlotField{
@@ -34,7 +36,7 @@ body{
 
 #sidebar p{
     justify-self: center;
-    font-family: "Lilita One";
+    font-family: Poppins;
     font-size: 1.5em;
     align-self: center;
 }
@@ -42,28 +44,50 @@ body{
 
 
 #sidebar a{
-    height:30px;
+    height:20px;
     text-decoration: none;
     font-size: 1.2em;
     padding:22px;
-    font-family:"Lilita One";
+    font-family:Poppins;
     transition: background-color 1.0s ease;
     
 }
 
 .sideLinks:hover{
-    background-color: rgba(3,3,3,0.2);
+    background-color: #c8c8c8;
+    color: white;
     margin:0px;
     
 }
 
 .sideLinks{
-    background-color: rgba(0,0,0,0);
+   
     width:100%;
     margin:0px;
     align-self: center;
     padding:16px 0px;       
     justify-self: center;
+}
+
+button{
+    margin-left: 40px;
+    margin-right: 40px;
+    border: solid;
+    border-width: 2px;
+    border-color: #0F52BA;
+    background-color: white;
+    height: 50px;
+    width: 150px;
+    font-family: Poppins;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    font-size: medium;
+}
+
+button:hover{
+    background-color: #0F52BA;
+    color: white;
 }
 
 a{
@@ -75,16 +99,17 @@ a{
     grid-template-columns: 100px repeat(13,1fr);
     column-gap: 7px;
     grid-gap:10px;
+   
 }
 
 
 span{
-    font-family: "Lilita One";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1{
-    font-family: 'Lilita One','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:cadetblue;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:black;
     font-size: 5rem;
 }
 
@@ -107,17 +132,16 @@ h1{
 }
 
 #currTime{
-    font-family: 'Lilita One','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Poppins;
     margin: 0px;
-    padding: 10px;
+    padding: 20px;
 }
 
 #sidebar{
     position:absolute;
     top: 0;
-    width:250px;
-    border-radius: 15px;
-    left: -300px;
+    width:300px;
+    left: -400px;
     height: 100%;
     box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
     z-index: 1;
@@ -125,9 +149,10 @@ h1{
     background-color: white;
     color:black;
     display: grid;
-    grid-template-rows: 80px repeat(8,50px);
+    grid-template-rows: 80px repeat(11,50px);
     padding: 0px;
-    gap: 5px;
+    gap: 10px;
+    font-family: Poppins;
 }
 
 
@@ -158,7 +183,7 @@ h1{
     display: inline-grid;
     justify-content: center;
     align-content: center;
-    font-family: 'Lilita One','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     cursor: pointer;
 }
 
@@ -184,7 +209,7 @@ h1{
 
 .sideLinks.selected{
     color:white;
-    background-color: cadetblue;
+    background-color: #1e6ee5;
 }
 
 .selected{
@@ -193,6 +218,8 @@ h1{
 
 #dynamic{
     min-height: 60vw;
+    
+    
 }
 
 #dynamic #maintenanceBody{

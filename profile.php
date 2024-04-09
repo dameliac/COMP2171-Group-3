@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>View Profile</title>
     <link rel="stylesheet" href="../COMP2171-Group-3/css/viewprofile.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
@@ -13,8 +13,6 @@
     <!-- Top navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
-        <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">User profile</a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -32,10 +30,10 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="/img/profile-removebg-preview.png">
+                  <img alt="user icon" src="../COMP2171-Group-3/img/admin.png">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">[Resident Name]</span>
+                  <span class="mb-0 text-sm  font-weight-bold"></span>
                 </div>
               </div>
             </a>
@@ -76,8 +74,23 @@
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
-          <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello [Resident Name]</h1>
+          <div class="col-lg-7 col-md-10" style="width: 800px;">
+          <?php
+            session_start();
+              include "../COMP2171-Group-3/RoleManagementData.php";
+              require_once ("../COMP2171-Group-3/storage/sql_connect.php");
+
+              $username = $_SESSION['userName'];
+              //get the usertype as well as firstname and lastname of current user
+
+              $userInfo = getTyped($mysqli,$username);
+
+              if($userInfo['type']=="resident"):
+                echo "<h1 class='display-2 text-white';>Hello ". $userInfo['first'] . " " . $userInfo['last']."</h1>";
+              elseif ($userInfo['type']=="staff"):
+                echo "<h1 class='display-2 text-white'>Hello ". $userInfo['first'] . " " . $userInfo['last']."</h1>";
+              endif;?>
+            
             <p class="text-white mt-0 mb-5">This is your profile. You can view your personal information below</p>
             <a href="#!" class="btn btn-info">Edit profile</a>
           </div>
@@ -88,7 +101,7 @@
     <div class="container-fluid mt--7">
       <div class="row">
         <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-          <div class="card card-profile shadow">
+          <!--<div class="card card-profile shadow">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
@@ -135,9 +148,9 @@
                 <a href="#">Go to Forum</a>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
-        <div class="col-xl-8 order-xl-1">
+        <div class="col-xl-8 order-xl-1" style="justify-content: center;">
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
