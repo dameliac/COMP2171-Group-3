@@ -1,0 +1,179 @@
+[
+    {
+        "id": 1,
+        "name": "Tide",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/liquids/Tide.jpeg",
+        "category": "Liquid"
+    },
+
+    {
+        "id": 2,
+        "name": "Gain",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/liquids/Gain.jpeg",
+        "category": "Liquid"
+    },
+    {
+        "id": 3,
+        "name": "All",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img//images/liquids/all.png",
+        "category": "Liquid"
+    },
+    {
+        "id": 4,
+        "name": "Persil",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/liquids/Percil.jpeg",
+        "category": "Liquid"
+    },
+    {
+        "id": 5,
+        "name": "Tril",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/liquids/Tril.jpeg",
+        "category": "Liquid"
+    },
+
+    {
+        "id": 6,
+        "name": "Ariel",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/powder/Ariel.jpeg",
+        "category": "Powder"
+    },
+
+    {
+        "id": 7,
+        "name": "Blanca",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/powder/Blanca.jpeg",
+        "category": "Powder"
+    },
+
+    {
+        "id": 8,
+        "name": "Breeze",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/powder/Breeze.jpeg",
+        "category": "Powder"
+    },
+
+    {
+        "id": 9,
+        "name": "Oxi Clean",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/powder/Oxi_Clean.jpeg",
+        "category": "Powder"
+    },
+
+    {
+        "id": 10,
+        "name": "Tide",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/powder/tide.jpeg",
+        "category": "Powder"
+    },
+    
+    {
+        "id": 11,
+        "name": "Downy",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/softeners/Downy.jpeg",
+        "category": "Softeners"
+    },
+    
+    {
+        "id": 12,
+        "name": "Ensueno",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image":"/img/images/softeners/Ensueno.jpeg",
+        "category": "Softeners"
+    },
+    
+    {
+        "id": 13,
+        "name": "Snuggle",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/softeners/Snuggle.jpeg",
+        "category": "Softeners"
+    },
+    
+    {
+        "id": 14,
+        "name": "Softlan",
+        "Current Quatity": 0,
+        "Quantity": 12,
+        "image": "/img/images/softeners/Softlan.jpeg",
+        "category": "Softeners"
+    },
+    
+    {
+        "id": 15,
+        "name": "Suavitel",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/softeners/Suavitel.jpeg",
+        "category": "Softeners"
+    },
+    
+    {
+        "id": 16,
+        "name": "Basket",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/others/basket.jpg",
+        "category": "Others"
+    },
+    
+    {
+        "id": 17,
+        "name": "Brush",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/others/Brush.jpeg",
+        "category": "Others"
+    },
+    
+    {
+        "id": 18,
+        "name": "Blue Soap",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/others/Blue-soap.jpeg",
+        "category": "Others"
+    },
+    
+    {
+        "id": 19,
+        "name": "Clorox",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/others/clorox.jpg",
+        "category": "Others"
+    },
+    
+    {
+        "id": 20,
+        "name": "Clothe-Pins",
+        "Current Quatity": 0,
+        "Quantity": 0,
+        "image": "/img/images/others/Close Pins.jpeg",
+        "category": "Others"
+    }    
+
+]
