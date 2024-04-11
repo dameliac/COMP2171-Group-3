@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generate Maintenance Request</title>
+<link rel="stylesheet" href="Maintence Request.css">
+<script src="../COMP2171-Group-3/js/maint.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<style>
+  body{
+    font-family: Poppins;
+  }
+</style>
+<body>
+ <div class="card">
+  <div class="container">
+    <!-- Card content goes here -->
+   <header>
+   <!--<h1><img src = "hangers.jpg">UniFresh Laundry Xpress</h1>-->
+   <!--div class="banner-image"><img src = "laundry.jpg"></div>-->
+   <img src="../COMP2171-Group-3/img/laundry logo.png"><h1>UniFresh Laundry Xpress</h1>
+   <img id="banner" src="../COMP2171-Group-3/img/laundry.jpg">
+   <div class = "heading"><h2>Maintenance Request Form</h2></div>
+   </header>
+   
+    <div class="allforms">
+    <form method = "POST" action = "maintenance_request.php">
+      <div>
+        <p><label for="fname">First name:</label></p>
+        <input type="text" id="fname" name="fname" placeholder="First Name" required>
+      </div>
+       <div>
+       <p><label for="lname">Last name:</label></p>
+        <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+       </div>
+    </div> 
+       
+       <div class="wrapper2">
+        <div>
+          <p><label for="problem">Type of Problem:</label></p>
+          <select name="problem" id="problem"  required>
+           <option value= "" disabled selected hidden>Type of Problem</option>
+           <option value="WM" >Washing Machine Malfunction</option>
+           <option value="DM">Dryer Malfunction</option>
+           <option value="Plumb">Plumbing issues</option>
+           <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+            <p><label for="machine">Machine Type:</label></p>
+              <select name="machine" id="machine"  required>
+                <option value= "" disabled selected hidden>Machine Type</option>
+                <option value="machine1">Machine 1</option>
+                <option value="machine2">Machine 2</option>
+                <option value="machine3">Machine 3</option>
+                <option value="machine4">Machine 4</option>
+                <option value="machine5">Machine 5</option>
+                <option value="machine6">Machine 6</option>
+                <option value="machine7">Machine 7</option>
+                <option value="machine8">Machine 8</option>
+                <option value="machine9">Machine 9</option>
+                <option value="machine10">Machine 10</option>
+                <option value="None">None</option>
+                
+              </select>
+        </div>
+       </div>
+     
+        
+        <div class="row">
+             
+            <p><label for="description">Please describe the issue:</label></p>
+            <textarea type="text" id="txt" name="txt"></textarea>
+
+          
+          <div>
+            <p><label for="evidence">Insert photo as supporting evidence:</label></p>
+            <p><input type="file" id="evidence" name="evidence" accept="image/png, image/jpeg image/jpg"/></p>
+          </div>
+        </div>
+  
+       
+       
+
+
+        
+      </div>
+      <p id="Submit">
+      <input onclick="submitForm()" id="submit" value ="SUBMIT" type="button">
+      </p>
+    </div> 
+
+    </form>
+   
+   
+      
+  </div>
+ </div>
+</body>
+</html>
