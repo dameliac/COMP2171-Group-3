@@ -22,13 +22,13 @@
     <title>Maintenance Request</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css\maint.css"/>
-    <script src="js\maint.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="../COMP2171-Group-3/css/maint.css"/>
+    <script src="../COMP2171-Group-3/js/maint.js"></script>
 </head>
 <body>
     <div id="maintenanceBody">
-    <h1>138 Dorm Laundry System</h1>
+    <h1>UniFresh Laundry Xpress</h1>
     <h2>Maintenance Request Form</h2>
     <!-- Form for users to submit issues -->
     <div id="requestForm">

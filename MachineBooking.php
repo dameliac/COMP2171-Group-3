@@ -1,12 +1,7 @@
 <?php
 //get session variables from initial login
 session_start();
-$mysqli = new mysqli("localhost", "sys", "laundry", "138users",3307);
-
-
-if ($mysqli->connect_error){
-    die("Connection failed: " . $mysqli->connect_error);
-}
+require_once("../COMP2171-Group-3/storage/sql_connect.php");
 //set date function to local time
 date_default_timezone_set('America/New_York');
 

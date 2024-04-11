@@ -83,12 +83,18 @@ INSERT INTO `machine status` (`id`, `machineName`, `machineStatus`) VALUES
 --
 -- Table structure for table `requests`
 --
-
 CREATE TABLE `requests` (
-  `id` int(11) NOT NULL,
-  `issue` text NOT NULL,
-  `submission_time` timestamp NOT NULL DEFAULT current_timestamp()
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  `submission_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `fname` VARCHAR(255),
+  `lname` VARCHAR(255),
+  `typeofissue` VARCHAR(255),
+  `machine` VARCHAR(55),
+  `description` VARCHAR(8055),
+  `filename` VARCHAR(255),
+  `data` LONGBLOB
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 

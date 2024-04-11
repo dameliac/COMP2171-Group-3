@@ -2,7 +2,7 @@
 session_start();
 $user = $_SESSION['userName'];
 
-$mysqli = new mysqli("localhost", "sys", "laundry", "138users", 3307);
+require_once("../COMP2171-Group-3/storage/sql_connect.php");
 
 
 if ($mysqli->connect_error) {

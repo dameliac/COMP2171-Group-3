@@ -1,12 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "sys", "laundry", "138users",3307);
-
-
-
-if ($mysqli->connect_error){
-    die("Connection failed: " . $mysqli->connect_error);
-}
+require_once("../COMP2171-Group-3/storage/sql_connect.php");
 
 $reservations = array();
 //get current day as a number

@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 menuItemers = document.querySelectorAll(".sideLinks a");
                 
                 menuItemers.forEach((item, index) => {
+                    console.log(index)
                     item.addEventListener("click", function (event) {
                       event.preventDefault();
                       handleMenuItemClick(item,index);
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
     menu.addEventListener("click",slideBar)
 
     function getPage(url){
+        console.log(url)
         fetch(url)
             .then(response => response.text())
             .then(html=>{
@@ -111,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
             getPage("TicketGenerator.php"); 
             break;
           default:
-            getPage("MaintenanceRequestView.php")
+            getPage("MaintenanceRequestForm.php")
             break;
         }
     }
@@ -162,10 +164,32 @@ document.addEventListener("DOMContentLoaded", function() {
       function handleMaintenanceAction(action){
         switch(action){
             case 0:
-                getPage("MaintenanceRequestView.php");
+                //dashboard.php
+                getPage("MaintenanceRequestForm.php");
                 break;
             case 1:
+                //viewProfile
+                getPage("profile.php");
+                break;
+            case 2:
+                //Forum
+                getPage("Ticket Database.php");
+                break;
+            case 3:
+                //Machine Status
                 getPage("MachineStatusUpdate.php");
+                break;
+            case 4:
+                //Ticket Database Lookup
+                getPage("Ticket Database.php");
+                break;
+            case 5:
+                //Laundry Inventory
+                getPage("Ticket Database.php");
+                break;
+            case 6:
+                //Request Overview
+                getPage("MaintenanceRequestView.php");
                 break;
         }
       }

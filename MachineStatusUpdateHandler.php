@@ -3,11 +3,7 @@
 session_start();
 
 //access database 
-$mysqli = new mysqli("localhost", "sys", "laundry", "138users",3307);
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
+require_once ("../COMP2171-Group-3/storage/sql_connet.php");
 
 //function that reduces the assignment of all users assigned to the machine thats out of service 
 function reduceAssignment($failMachine) {

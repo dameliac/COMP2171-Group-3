@@ -63,6 +63,7 @@ async function LookUp(query) {
   
 
 function LookupResident() {
+    var okBtn = document.getElementById("resident");
         okBtn.addEventListener('click',function(){
             let searchQuery = document.getElementById("search-ipt").value;
             console.log(searchQuery);
