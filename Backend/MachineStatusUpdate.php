@@ -1,10 +1,6 @@
 <?php
         session_start();
-        $mysqli = new mysqli("localhost", "sys", "laundry", "138users", 3307);
-
-        if ($mysqli->connect_error) {
-            die("Connection failed: " . $mysqli->connect_error);
-        }
+       require_once("../storage/sql_connect.php");
         //gets the machine name and status of all machines in the database and stores it in an array.
         $query = $mysqli->prepare("SELECT machineName, machineStatus FROM `machine status`");
         if ($query->execute()) {
@@ -21,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Statuses</title>
+    <title>Machine Status</title>
     <link rel="stylesheet" href="../COMP2171-Group-3/css/laundry.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +83,6 @@
             <button type="submit"  class="machineButtons">Toggle Availability</button>
         </form>
     </div>
-    <script src="js\status.js"></script>
+    <script src="../js/status.js"></script>
 </body>
 </html>

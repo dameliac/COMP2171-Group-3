@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../COMP2171-Group-3/storage/sql_connect.php");
+require_once("../storage/sql_connect.php");
 
 $reservations = array();
 //get current day as a number

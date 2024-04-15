@@ -3,7 +3,7 @@
     if (isset($_POST['time'])){
         session_start();
         $user = $_SESSION['userName'];
-        require_once ("../COMP2171-Group-3/storage/sql_connect.php");
+        require_once ("../storage/sql_connect.php");
         //set days of the week to associated numbers to convert numbers from database to days
         $days = ["Sunday"=> 0, "Monday"=> 1, "Tuesday"=> 2, "Wednesday"=> 3, "Thursday"=> 4, "Friday"=> 5, "Saturday"=> 6];
         if ($mysqli->connect_error) {
@@ -101,4 +101,4 @@ if ($infoQuery->execute()){
     </div>
 </body>
 </html>
-<script src="js\bookingcancellation.js"></script>
+<script src="../js/bookingcancellation.js"></script>

@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case 5:
                 //Laundry Inventory
-                getPage("Ticket Database.php");
+                getPage("inventory.html");
                 break;
             case 6:
                 //Request Overview

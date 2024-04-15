@@ -32,7 +32,7 @@ function CloseSearch(){
 
 async function filterContacts(filterType) {
     try {
-        const response = await fetch(`../COMP2171-Group-3/SearchTickets.php?filter=${filterType}`);
+        const response = await fetch(`../Backend/SearchTickets.php?filter=${filterType}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -47,7 +47,7 @@ async function LookUp(query) {
 
     
     try {
-        const response = await fetch(`../COMP2171-Group-3/SearchTickets.php?search=${query}`);
+        const response = await fetch(`../Backend/SearchTickets.php?search=${query}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

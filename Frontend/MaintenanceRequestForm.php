@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <title>Maintenance Request Form</title>
-<link rel="stylesheet" href="../COMP2171-Group-3/css/Maintence Request.css">
+<link rel="stylesheet" href="../css/Maintence Request.css">
+<script src="../js/maint.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
@@ -17,7 +18,7 @@
     <!-- Card content goes here -->
    <header class="header">
    <!--<img src="../COMP2171-Group-3/img/laundry logo.png">--><h1>UniFresh Laundry Xpress</h1>
-   <img id="banner" src="../COMP2171-Group-3/img/laundry.jpg">
+   <img id="banner" src="../img/laundry.jpg">
    <div class = "heading"><h2>Maintenance Request Form</h2></div>
    </header>
    
@@ -72,7 +73,7 @@
              
           <form action="/action_page.php">
             <p><label for="description">Please describe the issue:</label></p>
-            <textarea type="text" id="txt" name="txt"></textarea>
+            <textarea type="text" id="txt" name="txt" required></textarea>
           </form>
           
           <div>
@@ -88,7 +89,7 @@
         
       </div>
       <p id="Submit">
-      <input id="submit" value ="SUBMIT" type="button">
+      <input onclick="submitForm()" id="submit" value ="SUBMIT" type="button">
       </p>
     </div>
    

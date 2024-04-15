@@ -3,7 +3,7 @@
 session_start();
 
 //access database 
-require_once ("../COMP2171-Group-3/storage/sql_connet.php");
+require_once ("../storage/sql_connect.php");
 
 //function that reduces the assignment of all users assigned to the machine thats out of service 
 function reduceAssignment($failMachine) {

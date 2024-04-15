@@ -1,7 +1,7 @@
 <?php
 //get session variables from initial login
 session_start();
-require_once("../COMP2171-Group-3/storage/sql_connect.php");
+require_once("../storage/sql_connect.php");
 //set date function to local time
 date_default_timezone_set('America/New_York');
 

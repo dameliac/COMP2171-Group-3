@@ -34,5 +34,5 @@
     <div id="results"></div>
   </div>
 </div>
-<script type="text/javascript" src="../COMP2171-Group-3/js/getResidents.js">
+<script type="text/javascript" src="../js/getResidents.js">
 </script>
