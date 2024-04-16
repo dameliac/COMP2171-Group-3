@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         <title>UniFresh Laundry Xpress</title>
-        <link rel="icon" type="image/x-icon" href="../COMP2171-Group-3/img/laundry logo.png">
+        <link rel="icon" type="image/x-icon" href="../img/laundry logo.png">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel="fonts">
-        <link href="../COMP2171-Group-3/css/laundry.css" rel = "stylesheet">
+        <link href="../css/laundry.css" rel = "stylesheet">
    
        
     </head>
@@ -17,8 +17,16 @@
         <div id="timeSlotField">
             <header>
             <div id="topBar">
-                <img src="../img/Menu Button.png" alt="menu button" id="menu">
-                <span id="currTime"></span>
+                <!-- <img src="../img/Menu Button.png" alt="menu button" id="menu"> -->
+                <svg  id="menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="10" height="10">
+                    <g>
+                        <path d="M480,224H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,224,480,224z"/>
+                        <path d="M32,138.667h448c17.673,0,32-14.327,32-32s-14.327-32-32-32H32c-17.673,0-32,14.327-32,32S14.327,138.667,32,138.667z"/>
+                        <path d="M480,373.333H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,373.333,480,373.333z"/>
+                    </g> 
+                </svg>
+                
+                <span id="currTime" style="color: black;"></span>
             </div>
         </header>
             <!--Information assigned to div is in RoleManagement.php -->

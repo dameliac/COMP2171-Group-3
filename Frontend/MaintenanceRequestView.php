@@ -22,6 +22,14 @@
   }
   ?>
 
-
+<footer class="footer">
+    <div style="text-align: center;">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>&copy; UniFresh Laundry Xpress 2024. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

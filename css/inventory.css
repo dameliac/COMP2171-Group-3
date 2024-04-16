@@ -15,7 +15,7 @@ body{
     align-items: center;
     padding-bottom: 3.5px;
     padding-top: 3.5px;
-    border-radius: 5px;
+    
 }
 .navbar .logo{
     flex-grow: 1; 

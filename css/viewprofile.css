@@ -870,7 +870,7 @@
     border-bottom-left-radius: 0;
   }
   
-  .nav {
+  /* .nav {
     display: flex;
     margin-bottom: 0;
     padding-left: 0;
@@ -921,7 +921,7 @@
   .navbar-nav .dropdown-menu {
     position: static;
     float: none;
-  }
+  } */
   
   @media (max-width: 767.98px) {
   

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Profile</title>
-    <link rel="stylesheet" href="../COMP2171-Group-3/css/viewprofile.css">
+    <link rel="stylesheet" href="../css/viewprofile.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
 <main>
@@ -13,25 +13,13 @@
     <!-- Top navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
-        <!-- Form -->
-        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-          <div class="form-group mb-0">
-            <div class="input-group input-group-alternative">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
-              </div>
-              <input class="form-control" placeholder="Search" type="text">
-            </div>
-          </div>
-        </form>
+    
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="user icon" src="../COMP2171-Group-3/img/admin.png">
-                </span>
+                
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold"></span>
                 </div>
@@ -77,8 +65,8 @@
           <div class="col-lg-7 col-md-10" style="width: 800px;">
           <?php
             session_start();
-              include "../COMP2171-Group-3/RoleManagementData.php";
-              require_once ("../COMP2171-Group-3/storage/sql_connect.php");
+              include "../Backend/RoleManagementData.php";
+              require_once ("../storage/sql_connect.php");
 
               $username = $_SESSION['userName'];
               //get the usertype as well as firstname and lastname of current user
@@ -294,7 +282,7 @@
     <div class="row align-items-center justify-content-xl-between">
       <div class="col-xl-6 m-auto text-center">
         <div class="copyright">
-          <p>&copy; 2024 UniFresh Laundry Xpress. All rights reserved.</p>
+          <p>&copy; UniFresh Laundry Xpress 2024. All rights reserved.</p>
         </div>
       </div>
     </div>

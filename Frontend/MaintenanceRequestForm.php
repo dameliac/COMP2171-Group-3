@@ -17,7 +17,7 @@
   <div class="container">
     <!-- Card content goes here -->
    <header class="header">
-   <!--<img src="../COMP2171-Group-3/img/laundry logo.png">--><h1>UniFresh Laundry Xpress</h1>
+   <!--<img src="../COMP2171-Group-3/img/laundry logo.png">--><h1 id="maint">UniFresh Laundry Xpress</h1>
    <img id="banner" src="../img/laundry.jpg">
    <div class = "heading"><h2>Maintenance Request Form</h2></div>
    </header>
@@ -92,7 +92,15 @@
       <input onclick="submitForm()" id="submit" value ="SUBMIT" type="button">
       </p>
     </div>
-   
+    <footer class="footer">
+    <div style="text-align: center;">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>&copy; UniFresh Laundry Xpress 2024. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
    
       
   </div>

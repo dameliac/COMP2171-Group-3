@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/inventory.css">
+    <link rel="stylesheet" href="../css/inventory.css">
     <title>Product page</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
             <h3>Liquid Detergents</h3>
             <div class="item-row" id="Liquid">
                 <div class="card">
-                    <img src="/img/liquids/Gain.jpeg" alt="Example Image">
+                    <img src="../img/liquids/Gain.jpeg" alt="Example Image">
                     <div class="card-content">
                       <h3>Card Title</h3>
                       <div class="btn-section">
@@ -31,7 +31,7 @@
             <h3>Powder Detergents</h3>
             <div class="item-row" id="Powder">
                 <div class="card">
-                    <img src="/img/powder/Blanca.jpeg" alt="Example Image">
+                    <img src="../img/powder/Blanca.jpeg" alt="Example Image">
                     <div class="card-content">
                       <h3>Card Title</h3>
                       <div class="btn-section">
@@ -44,7 +44,7 @@
             <h3>Fabric Softeners</h3>
             <div class="item-row" id="Softeners">
                 <div class="card">
-                    <img src="/img/softeners/Downy.jpeg" alt="Example Image">
+                    <img src="../img/softeners/Downy.jpeg" alt="Example Image">
                     <div class="card-content">
                       <h3>Card Title</h3>
                       <div class="btn-section">
@@ -57,7 +57,7 @@
             <h3>Others</h3>
             <div class="item-row" id="Others">
                 <div class="card">
-                    <img src="/img/others/Brush.jpeg" alt="Example Image">
+                    <img src="../img/others/Brush.jpeg" alt="Example Image">
                     <div class="card-content">
                       <h3>Card Title</h3>
                       <div class="btn-section">
@@ -88,6 +88,15 @@
             </div>
         </div>
     </div>
-    <script src="/js/inventory.js"></script>
+    <footer class="footer">
+    <div style="text-align: center;">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>&copy; UniFresh Laundry Xpress 2024. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="../js/inventory.js"></script>
 </body>
 </html>

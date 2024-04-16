@@ -64,17 +64,21 @@
     width: 1200px;
     background-color: white;
     padding: 50px;
-    margin-left: 200px;
-    margin-right: 150px;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
     
 }
+  
+    
+
 
 h1{
     text-align: center;
     color: #6F8FAF;
     font-size: 40px;
     font-family: Poppins;
-    
+    width: max-content;
 }
 
 .heading{
@@ -90,7 +94,7 @@ h1{
     align-items: center;
     justify-content: center;
     color: black;
-    width: 600px;
+    width: 680px;
     padding: 25px;
     
 }
@@ -174,7 +178,7 @@ input::file-selector-button{
     width: 160px;
     padding: 15px;
     border-radius: 25px;
-    background-color: #A7C7E7;
+    background-color: #0F52BA;
     text-align: center;
     color: white;
     font-weight: bold;

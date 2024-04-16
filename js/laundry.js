@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     menuList.onreadystatechange = menuLister;
-    menuList.open("GET", "RoleManagement.php", true);
+    menuList.open("GET", "../Backend/RoleManagement.php", true);
     menuList.send();
 
 
@@ -173,11 +173,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case 2:
                 //Forum
-                getPage("Ticket Database.php");
+                getPage("displayforum.php");
                 break;
             case 3:
                 //Machine Status
-                getPage("MachineStatusUpdate.php");
+                getPage("../Backend/MachineStatusUpdate.php");
                 break;
             case 4:
                 //Ticket Database Lookup
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case 5:
                 //Laundry Inventory
-                getPage("inventory.html");
+                getPage("inventory.php");
                 break;
             case 6:
                 //Request Overview

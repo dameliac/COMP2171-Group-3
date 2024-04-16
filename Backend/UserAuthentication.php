@@ -1,14 +1,9 @@
 <?php
 
-include "../COMP2171-Group-3/storage/sql_connect.php";
+include "../storage/sql_connect.php";
 
-require '../COMP2171-Group-3/UserAuthenticationData.php'; 
+require '../Backend/UserAuthenticationData.php'; 
 
-
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
 
 if (isset($_POST['submit'])) {
     $username = isset($_POST['userName']) ? $mysqli->real_escape_string($_POST['userName']) : '';
@@ -18,19 +13,19 @@ if (isset($_POST['submit'])) {
     if (password_verify($password,$storedPassword)){
         session_start();
         $_SESSION['userName'] = $username; 
-        header("Location: base.html");
+        header("Location: ../Frontend/base.html");
         exit();
     }
     else if($storedPassword.include("userWrongs")){
         session_start();
         $_SESSION['userWrongs'] =  true;
-        header("Location: index.php");
+        header("Location: ../Frontend/index.php");
         exit();
     }
     else{
         session_start();
         $_SESSION['passwordWrongs'] =  true;
-        header("Location: index.php");
+        header("Location: ../Frontend/index.php");
         exit();
     }
     $mysqli->close();
