@@ -4,7 +4,7 @@ function submitForm() {
     const lastName = document.getElementById('lname').value;
     const problemType = document.getElementById('problem').value;
     const machineType = document.getElementById('machine').value;
-    const issueDescription = document.getElementById('description').value;
+    const issueDescription = document.getElementById('txt').value;
     const imageFile = document.getElementById('evidence').files[0]; // Get the first selected file
 
     // Create FormData object to send form data through AJAX
@@ -18,7 +18,7 @@ function submitForm() {
 
     // Create XMLHttpRequest object
     const formalRequest = new XMLHttpRequest();
-    formalRequest.open('POST', 'Backend/maintenance_request.php', true);
+    formalRequest.open('POST', '../Backend/maintenance_request.php', true);
 
     // Set up onload and onerror handlers
     formalRequest.onload = function () {

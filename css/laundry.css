@@ -331,3 +331,22 @@ h1{
     border-radius: 5px;
     font-family: "Lilita One";
 }
+
+
+.footer {
+    padding: 2.5rem 0;
+    background: #f7fafc;
+  }
+  
+  .footer .nav .nav-item .nav-link {
+    color: #8898aa !important;
+  }
+  
+  .footer .nav .nav-item .nav-link:hover {
+    color: #525f7f !important;
+  }
+  
+  .footer .copyright {
+    font-size: .875rem;
+  }
+  

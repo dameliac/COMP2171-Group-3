@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 }
 
 // Fetch data from the REQUEST table
-$sql = "SELECT submission_time, typeofissue, machine, description FROM REQUEST";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM request";
+$result = $mysqli ->query($sql);
 
 ?>
 
