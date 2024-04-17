@@ -13,12 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $submissionTime = date('Y-m-d H:i:s');
 
   // Handling file upload
-  $evidenceFile = $_FILES["evidence"];
-  $evidenceFileName = $evidenceFile["name"];
-  $evidenceFileTmp = $evidenceFile["tmp_name"];
+    $evidenceFileName = '';
+    $evidenceData = '';
 
-  // Read file contents
-  $evidenceData = file_get_contents($evidenceFileTmp);
+    // Check if an image was uploaded
+    if (!empty($_FILES["evidence"]["tmp_name"])) {
+        // Handling file upload
+        $evidenceFile = $_FILES["evidence"];
+        $evidenceFileName = $evidenceFile["name"];
+        $evidenceFileTmp = $evidenceFile["tmp_name"];
+
+        // Read file contents
+        $evidenceData = file_get_contents($evidenceFileTmp);
+    }
 
     // Prepare SQL statement
     $sql = $mysqli->prepare("INSERT INTO requests (submission_time, fname, lname, typeofissue, machine, description, filename, data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");

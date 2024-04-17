@@ -335,16 +335,10 @@ h1{
 
 .footer {
     padding: 2.5rem 0;
-    background: #f7fafc;
+    background: #f3f4f6;
   }
   
-  .footer .nav .nav-item .nav-link {
-    color: #8898aa !important;
-  }
-  
-  .footer .nav .nav-item .nav-link:hover {
-    color: #525f7f !important;
-  }
+ 
   
   .footer .copyright {
     font-size: .875rem;

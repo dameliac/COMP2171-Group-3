@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('../Backend/request.php')
         .then(response => response.json())
         .then(data => {
-            const reportBody = document.getElementById('reportBody');
+            var reportBody = document.getElementById('reportBody');
             data.sort((a, b) => new Date(b.date) - new Date(a.date));
             data.forEach(report => {
                 const row = document.createElement('tr');

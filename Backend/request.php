@@ -1,9 +1,4 @@
 <?php
-// Establish database connection
-$servername = "localhost";
-$username = "username"; // Replace with your MySQL username
-$password = "password"; // Replace with your MySQL password
-$dbname = "UniXpress";
 
 // Create connection
 require_once("../storage/sql_connect.php");
@@ -53,7 +48,7 @@ $result = $mysqli ->query($sql);
             } else {
                 echo "0 results";
             }
-            $conn->close();
+            $mysqli->close();
             ?>
         </tbody>
     </table> 
