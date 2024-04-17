@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventory.css">
+    <script type=text/javascript.js src="../js/inventory.js"> </script>
     <title>Product page</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
             <h3>Liquid Detergents</h3>
             <div class="item-row" id="Liquid">
                 <div class="card">
-                    <img src="../img/liquids/Gain.jpeg" alt="Example Image">
+                    <img src="../img/liquids/all.jpeg" alt="Example Image">
                     <div class="card-content">
                       <h3>Card Title</h3>
                       <div class="btn-section">
@@ -97,6 +98,6 @@
       </div>
     </div>
   </footer>
-  <script type= "text/javasrcipt" src="../js/inventory.js"></script>
+    
 </body>
 </html>

@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
             getPage("MaintenanceRequestForm.php");
             break;
           case 4:
-            getPage("../Backend/bookingcancellation.php");
+            getPage("../Backend/bookingCancellation.php");
             break;
         }
       }
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
       function handleStaffAction(action){
         switch(action){
             case 0:
-                getPage("../Backend/TicketGenerator.php")
+                getPage("TicketGenerator.php")
                 break;
             case 1:
                 getPage("MaintenanceRequest.php");
