@@ -1,23 +1,20 @@
 function submitForm() {
     // Collect form data
-    var firstName = document.getElementById("fname").value;
-    var lastName = document.getElementById("lname").value;
-    var problemType = document.getElementById("problem").value;
-    var machineType = document.getElementById("machine").value;
-    var description = document.getElementById("txt").value;
+    var firstName = encodeURIComponent(document.getElementById("fname").value);
+    var lastName = encodeURIComponent(document.getElementById("lname").value);
+    var problemType = encodeURIComponent(document.getElementById("problem").value);
+    var machineType = encodeURIComponent(document.getElementById("machine").value);
+    var description = encodeURIComponent(document.getElementById("txt").value);
     var evidenceFile = document.getElementById("evidence").files[0]; // Get the first selected file
 
-    // Create FormData object to send form data through AJAX
-    var formData = {
-        firstName: firstName,
-        lastName: lastName,
-        problemType: problemType,
-        machineType: machineType,
-        description: description,
-        evidenceFile: evidenceFile
-    };
-
-    console.log(formData);
+    // Create a FormData object
+    var formData = new FormData();
+    formData.append('fname', firstName);
+    formData.append('lname', lastName);
+    formData.append('problem', problemType);
+    formData.append('machine', machineType);
+    formData.append('txt', description);
+    formData.append('evidence', evidenceFile);
 
     // Create XMLHttpRequest object
     const formalRequest = new XMLHttpRequest();
@@ -25,17 +22,10 @@ function submitForm() {
 
     // Set up onload and onerror handlers
     formalRequest.onload = function () {
-        if (formalRequest.status === 200) {
-            let formResponse = formalRequest.responseText;
-            if (formResponse.includes("success")) {
-                document.getElementById('requestForm').style.display = 'none';
-                document.getElementById('confirmationMessage').style.display = 'block';
-            } else {
-                console.log(formResponse);
-                alert("Request not submitted");
-            }
+        if (formalRequest.status == 200) {
+            alert("Form Submitted");
         } else {
-            alert("Error occurred: " + formalRequest.status);
+            alert("ERROR: Form submission failed. Please try again.");
         }
     };
 
@@ -45,4 +35,6 @@ function submitForm() {
 
     // Send the FormData object
     formalRequest.send(formData);
+
+    document.getElementById("allforms").reset();
 }

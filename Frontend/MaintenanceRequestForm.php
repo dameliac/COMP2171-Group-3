@@ -78,7 +78,7 @@
           
           <div>
             <p><label for="evidence">Insert photo as supporting evidence:</label></p>
-            <p><input type="file" id="evidence" name="evidence" accept="image/png, image/jpeg image/jpg"/></p>
+            <p><input type="file" id="evidence" name="evidence" accept="image/png, image/jpeg, image/jpg"/></p>
           </div>
         </div>
   
