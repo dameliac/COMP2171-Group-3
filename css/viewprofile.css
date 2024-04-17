@@ -971,6 +971,7 @@
     border-radius: .375rem;
     background-color: #fff;
     background-clip: border-box;
+    width: 750px;
     margin-left: 500px;
   }
   
