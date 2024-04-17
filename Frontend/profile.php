@@ -195,7 +195,7 @@
                     <div class="col-lg-6">
                         <div class="form-group focused">
                           <label class="form-control-label" for="input-last-name">Date of Birth</label>
-                          <input type="date" id="input-date-birth" class="form-control form-control-alternative" min ="2006-01-01" max= "1924-12-31" value="dd/mm/yyyy" required>
+                          <input type="date" id="input-date-birth" class="form-control form-control-alternative" min ="2006-01-01" max= "1924-12-31" value="yyyy/mm/dd" required>
                         </div>
                     </div>
                     <div class="col-lg-6">

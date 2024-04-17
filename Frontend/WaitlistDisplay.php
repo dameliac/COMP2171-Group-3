@@ -1,12 +1,6 @@
 <?php
 session_start();
-$user = $_SESSION['userName'];
-
-$mysqli = new mysqli("localhost", "sys", "laundry", "138users",3307);
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
+require_once("../storage/sql_connect.php");
 
 //sets date to local time and get current hour and time
 date_default_timezone_set('America/New_York');
@@ -74,11 +68,9 @@ if ($machineQuery->execute()) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waitlist Display</title>
-    <link rel="icon" type="image/logo" href="img\laundry logo.png">
-    <link rel="stylesheet" href="css\styles.css">
+   
+    <link rel="icon" type="image/logo" href="../img/laundry logo.png">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
