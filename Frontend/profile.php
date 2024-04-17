@@ -1,10 +1,43 @@
+<?php
+  require_once ("../storage/sql_connect.php");
+
+  $user = 'SELECT *FROM dorm';
+  
+  if($result = mysqli_query($mysqli, $user)){
+      if(mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_array($result)){
+        $id= $row['username'];
+        $fname = $row['firstname'];
+        $mname = $row['middlename'];
+        $lname = $row['lastname'];
+        $dob = $row['dateofbirth'];
+        $gender = $row['gender'];
+        $email = $row['email'];
+        $primary = $row['primarynum'];
+        $secondary = $row['secondarynum'];
+        $hall = $row['hall'];
+        $block = $row['block'];
+        $aptnum = $row['aptnum'];
+        $about = $row['about'];
+  
+      }
+      mysqli_free_result($result);
+    } else{
+      echo " ";
+  }
+  } else{
+  echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+  }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Profile</title>
-    <link rel="stylesheet" href="../css/viewprofile.css">
+     <link rel="stylesheet" href="../css/viewprofile.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
 <main>
@@ -158,7 +191,7 @@
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">School ID Number:</label>
-                        <input type="number" id="input-username" class="form-control form-control-alternative" minlength="9" maxlength="9" pattern = "[0-9]{9}"value="6201*****" required>
+                        <input type="number" id="input-username" class="form-control form-control-alternative" minlength="9" maxlength="9" pattern = "[0-9]{9}"value="<?php echo $id ?>" required>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -175,7 +208,7 @@
                       <div class="col-lg-4">
                           <div class="form-group focused">
                               <label class="form-control-label" for="input-first-name">First name</label>
-                              <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="John" required>
+                              <input type="text" id="input-first-name" class="form-control form-control-alternative"required value= "<?php echo $fname; ?>">
                           </div>
                       </div>
                       <div class="col-lg-4">

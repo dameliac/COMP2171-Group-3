@@ -6,7 +6,7 @@ let listSoftenersProductsHTML = document.getElementById('Softeners');
 let listOthersProductsHTML = document.getElementById('Others');
 let listInventoryHTML = document.querySelector('.itemlist');
 let submitButton = document.querySelector('.submit');
-let cancelButton = document.querySelector('.cancel')
+let cancelButton = document.querySelector('.cancel');
 
 let listProducts = [];
 let PowderProducts = [];
@@ -16,414 +16,220 @@ let OthersProducts = [];
 
 let inventory = [];
 
-let idAmountDict = {}
-/*-----------QUANTITY VALUE----------- */
+let idAmountDict = {};
 
-/*function addDataToHTML(){
-
-    if (!listProductHTML) {
-        console.error("listProductHTML element not found.");
-        return;
-    }
-    listProductHTML.innerHTML = '';
-    if (listProducts.length > 0){
-        listProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.classList.add('card');
-            newProduct.innerHTML= `
-                    <img src="${product.image}" alt="Example Image">
-                    <div class="card-content">
-                      <h3>${product.name}</h3>
-                      <div class="btn-section">
-                        <button type="submit" value="remove">-</button>
-                        <button type="submit" value="add">+</button>
-                      </div>`;
-            listProductHTML.appendChild(newProduct);
-        })
-    }
-}
-document.addEventListener("DOMContentLoaded", function() {
-    addDataToHTML();
-});
-
-
-const initApp = () => {
-    fetch('product.json')
-    .then(response => response.json())
-    .then(data => {
-        listProducts = data;
-        console.log(listProducts);
-        addDataToHTML();
-    })
-    .catch(error=>{
-        console.error('Error fecthing products',error);
-    });
-}
-initApp();
-
-function fetchProducts() {
-    fetch('product.json')
-        .then(response => response.json())
-        .then(data => {
-            // Display each item in the console
-            data.forEach(item => {
-                listProducts.push(item);
-            });
-            console.log(listProducts);
-            addDataToHTML();
-        })
-        .catch(error => console.error('Error fetching products:', error));
-}
-fetchProducts();
-*/
-
-/*-----------FECTCH--------------*/
+// Fetch products from JSON
 function fetchProducts() {
     fetch('../json/product.json')
         .then(response => response.json())
         .then(data => {
-            data.forEach(item => {
-                switch (item.category) {
-                    case 'Liquid':
-                        LiquidProducts.push(item);
-                        listProducts.push(item);
-                        break;
-                    case 'Powder':
-                        PowderProducts.push(item);
-                        listProducts.push(item);
-                        break;
-                    case 'Softeners':
-                        SoftenersProducts.push(item);
-                        listProducts.push(item);
-                        break;
-                    case 'Others':
-                        OthersProducts.push(item);
-                        listProducts.push(item);
-                        break;
-                    default:
-                        break;
-                }
-            });
+            listProducts = data;
+            categorizeProducts();
             console.log("Liquid Products:", LiquidProducts);
             console.log("Powder Products:", PowderProducts);
             console.log("Softeners Products:", SoftenersProducts);
             console.log("Other Products:", OthersProducts);
-            console.log("Product",listProducts)
             addDataToHTML();
-           
-
         })
         .catch(error => console.error('Error fetching products:', error));
 }
-fetchProducts();
 
-
-
-
-
-
-/*----------------LIQUID PRODUCTS-----------------*/
-function addLiquidProductsToHTML() {
-    if (!listLiquidProductsHTML) {
-        console.error("listLiquidProductsHTML element not found.");
-        return;
-    }
-
-    listLiquidProductsHTML.innerHTML = '';
-    if (LiquidProducts.length > 0) {
-        LiquidProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
-            newProduct.dataset.Quantity = product.Quantity;
-            newProduct.classList.add('card');
-            newProduct.innerHTML = `
-                <img src="${product.image}" alt="Example Image">
-                <div class="card-content">
-                    <h3>${product.name}</h3>
-                    <div class="btn-section">
-                        <button type="submit" class="remove">-</button>
-                        <button type="submit" class="add">+</button>
-                    </div>
-                </div>`;
-            listLiquidProductsHTML.appendChild(newProduct);
-        });
-    }
-}
-
-
-/*----------------POWDER PRODUCTS-----------------*/
-function addPowderProductsToHTML() {
-    if (!listPowderProductsHTML) {
-        console.error("listPowderProductsHTML element not found.");
-        return;
-    }
-
-    listPowderProductsHTML.innerHTML = '';
-    if (PowderProducts.length > 0) {
-        PowderProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
-            newProduct.classList.add('card');
-            newProduct.innerHTML = `
-                <img src="${product.image}" alt="Example Image">
-                <div class="card-content">
-                    <h3>${product.name}</h3>
-                    <div class="btn-section">
-                        <button type="submit" class="remove">-</button>
-                        <button type="submit" class="add">+</button>
-                    </div>
-                </div>`;
-            listPowderProductsHTML.appendChild(newProduct);
-        });
-    }
-}
-/*----------------SOFTERNERS PRODUCTS-----------------*/
-function addSoftenersProductsToHTML() {
-    if (!listSoftenersProductsHTML) {
-        console.error("listSoftenersProductsHTML element not found.");
-        return;
-    }
-
-    listSoftenersProductsHTML.innerHTML = '';
-    if (SoftenersProducts.length > 0) {
-        SoftenersProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
-            newProduct.classList.add('card');
-            newProduct.innerHTML = `
-                <img src="${product.image}" alt="Example Image">
-                <div class="card-content">
-                    <h3>${product.name}</h3>
-                    <div class="btn-section">
-                        <button type="submit" class="remove">-</button>
-                        <button type="submit" class="add">+</button>
-                    </div>
-                </div>`;
-            listSoftenersProductsHTML.appendChild(newProduct);
-        });
-    }
-}
-function addOthersProductsToHTML() {
-    if (!listOthersProductsHTML) {
-        console.error("listOthersProductsHTML element not found.");
-        return;
-    }
-
-    listOthersProductsHTML.innerHTML = '';
-    if (OthersProducts.length > 0) {
-        OthersProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
-            newProduct.classList.add('card');
-            newProduct.innerHTML = `
-                <img src="${product.image}" alt="Example Image">
-                <div class="card-content">
-                    <h3>${product.name}</h3>
-                    <div class="btn-section">
-                        <button type="submit" class="remove">-</button>
-                        <button type="submit" class="add">+</button>
-                    </div>
-                </div>`;
-                listOthersProductsHTML.appendChild(newProduct);
-        });
-    }
-}
-
-function addDataToHTML() {
-    addLiquidProductsToHTML();
-    addPowderProductsToHTML();
-    addSoftenersProductsToHTML();
-    addOthersProductsToHTML();
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    addDataToHTML();
-});
-
-
-
-/*----------------BUTTONS-----------------*/
-listLiquidProductsHTML.addEventListener('click',(event) =>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id];
-    if (product_Quantity === undefined) {
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-
-listPowderProductsHTML.addEventListener('click',(event) =>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id]; 
-    if (product_Quantity === undefined) {
-       
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-
-listSoftenersProductsHTML.addEventListener('click',(event) =>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id]; 
-    if (product_Quantity === undefined) {
-      
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-listOthersProductsHTML.addEventListener('click', (event)=>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id];
-    if (product_Quantity === undefined) {
-
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-
-
-const addtoInventory = (product_id,product_Quantity) => {
-    const quantityInteger = parseInt(product_Quantity);
-    let positionofproduct = inventory.findIndex((value) => value.product_id == product_id);
-    if(inventory.length <= 0){
-        inventory = [{
-            product_id: product_id,
-            product_Quantity: quantityInteger,
-            quantity: 0
-        }]
-    } else if(positionofproduct < 0){
-        inventory.push({
-            product_id:product_id,
-            product_Quantity: quantityInteger,
-            quantity: 0
-        });
-    } else {
-        inventory[positionofproduct].quantity = inventory[positionofproduct].quantity + 1;
-    }
-    addInventoryToHTML();
-}
-
-
-
-const addInventoryToHTML = () => {
-    listInventoryHTML.innerHTML = '';
-    if (inventory.length > 0){
-        inventory.forEach(item => {
-            let newitem = document.createElement('div');
-            newitem.classList.add('item');
-            newitem.dataset.id = item.product_id;
-            let position = listProducts.findIndex((value) => value.id == item.product_id);
-            let info = listProducts[position];
-            let productQuantity = idAmountDict[item.product_id] !== undefined ? idAmountDict[item.product_id] : info.Quantity;
-            newitem.innerHTML =`
-            <div class="product">
-                    <img src="${info.image}" alt="">
-                </div>
-                <div class="Stock">
-                    ${productQuantity}
-                </div>
-                <div class="item-quantity">
-                    <span class="minus"><</span>
-                    <span>${item.quantity}</span>
-                    <span class="plus">></span>
-                </div>
-                <div class="total">
-                    ${item.quantity + productQuantity}
-                </div>`;
-        listInventoryHTML.appendChild(newitem);
-        })
-    }
-}
-
-const removeInventoryFromHTML = () => {
-    inventory.length = 0;
-    listInventoryHTML.innerHTML = '';
-};
-listInventoryHTML.addEventListener('click', (event) => {
-    let positionclick = event.target;
-    if(positionclick.classList.contains('minus') || positionclick.classList.contains('plus')){
-        let product_id = positionclick.parentElement.parentElement.dataset.id;
-        /*console.log(product_id);*/
-        let type = 'minus';
-        if(positionclick.classList.contains('plus')){
-            type = 'plus';
-        }
-        changeQuantity(product_id,type); 
-    }
-})
-
-const changeQuantity = (product_id, type) => {
-    let positionItem = inventory.findIndex((value) => value.product_id == product_id);
-    if (positionItem >= 0) {
-        let negativeThreshold = -1 *(idAmountDict[product_id] || 0); 
-        switch (type) {
-            case 'plus':
-                inventory[positionItem].quantity += 1;
+// Categorize products based on type
+function categorizeProducts() {
+    listProducts.forEach(item => {
+        switch (item.category) {
+            case 'Liquid':
+                LiquidProducts.push(item);
+                break;
+            case 'Powder':
+                PowderProducts.push(item);
+                break;
+            case 'Softeners':
+                SoftenersProducts.push(item);
+                break;
+            case 'Others':
+                OthersProducts.push(item);
                 break;
             default:
-                let valueChange = inventory[positionItem].quantity - 1;
-                if (valueChange >= negativeThreshold) {
-                    inventory[positionItem].quantity = valueChange;
-                }
                 break;
         }
+    });
+}
+
+// Add products to HTML
+function addDataToHTML() {
+    addProductsToHTML(LiquidProducts, listLiquidProductsHTML);
+    addProductsToHTML(PowderProducts, listPowderProductsHTML);
+    addProductsToHTML(SoftenersProducts, listSoftenersProductsHTML);
+    addProductsToHTML(OthersProducts, listOthersProductsHTML);
+}
+
+function addProductsToHTML(products, container) {
+    if (!container) {
+        console.error(`${container.id} element not found.`);
+        return;
     }
-    addInventoryToHTML();
-};
 
+    container.innerHTML = '';
+    if (products.length > 0) {
+        products.forEach(product => {
+            let newProduct = createProductElement(product);
+            container.appendChild(newProduct);
+        });
+    }
+}
 
+function createProductElement(product) {
+    let newProduct = document.createElement('div');
+    newProduct.dataset.id = product.id;
+    newProduct.classList.add('card');
+    newProduct.innerHTML = `
+        <img src="${product.image}" alt="Example Image">
+        <div class="card-content">
+            <h3>${product.name}</h3>
+            <div class="btn-section">
+                <button type="button" class="remove">-</button>
+                <button type="button" class="add">+</button>
+            </div>
+        </div>`;
+    return newProduct;
+}
 
-const removeFromInventory = (product_id) => {
-    let positionOfProduct = inventory.findIndex((value) => value.product_id == product_id);
-    if (positionOfProduct >= 0) {
-        if (inventory[positionOfProduct].quantity > 1) {
-            inventory[positionOfProduct].quantity -= 1;
+// Event listeners for product buttons
+function addProductEventListeners() {
+    [listLiquidProductsHTML, listPowderProductsHTML, listSoftenersProductsHTML, listOthersProductsHTML].forEach(container => {
+        container.addEventListener('click', (event) => {
+            let target = event.target;
+            if (target.classList.contains('add')) {
+                addToInventory(target.parentElement.parentElement.dataset.id);
+            } else if (target.classList.contains('remove')) {
+                removeFromInventory(target.parentElement.parentElement.dataset.id);
+            }
+        });
+    });
+}
+
+// Add product to inventory
+function addToInventory(productId) {
+    let product = listProducts.find(item => item.id === productId);
+    if (product) {
+        let inventoryItem = inventory.find(item => item.product_id === productId);
+        if (inventoryItem) {
+            inventoryItem.quantity++;
         } else {
-            inventory.splice(positionOfProduct, 1);
+            inventory.push({
+                product_id: productId,
+                product_Quantity: product.Quantity,
+                quantity: 1
+            });
         }
         addInventoryToHTML();
-    } else {
-        console.log("Product not found in inventory.");
     }
-};
+}
 
-submitButton.addEventListener("click", SubmitInventory);
-cancelButton.addEventListener("click",CancelInventory)
+// Remove product from inventory
+function removeFromInventory(productId) {
+    let index = inventory.findIndex(item => item.product_id === productId);
+    if (index !== -1) {
+        if (inventory[index].quantity > 1) {
+            inventory[index].quantity--;
+        } else {
+            inventory.splice(index, 1);
+        }
+        addInventoryToHTML();
+    }
+}
 
-function SubmitInventory(){
-    console.log("Submit button pressed.")
-    if(inventory.length > 0){
+// Add inventory to HTML
+function addInventoryToHTML() {
+    listInventoryHTML.innerHTML = '';
+    inventory.forEach(item => {
+        let product = listProducts.find(product => product.id === item.product_id);
+        let productQuantity = idAmountDict[item.product_id] || product.Quantity;
+        let newitem = document.createElement('div');
+        newitem.classList.add('item');
+        newitem.dataset.id = item.product_id;
+        newitem.innerHTML = `
+            <div class="product">
+                <img src="${product.image}" alt="">
+            </div>
+            <div class="Stock">
+                ${productQuantity}
+            </div>
+            <div class="item-quantity">
+                <span class="minus">-</span>
+                <span>${item.quantity}</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="total">
+                ${item.quantity + productQuantity}
+            </div>`;
+        listInventoryHTML.appendChild(newitem);
+    });
+}
+
+// Event listener for inventory quantity changes
+listInventoryHTML.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target.classList.contains('minus') || target.classList.contains('plus')) {
+        let productId = target.parentElement.parentElement.dataset.id;
+        let type = target.classList.contains('plus') ? 'plus' : 'minus';
+        changeQuantity(productId, type);
+    }
+});
+
+// Change inventory quantity
+function changeQuantity(productId, type) {
+    let inventoryItem = inventory.find(item => item.product_id === productId);
+    if (inventoryItem) {
+        let negativeThreshold = -1 * (idAmountDict[productId] || 0);
+        if (type === 'plus') {
+            inventoryItem.quantity++;
+        } else {
+            if (inventoryItem.quantity > negativeThreshold) {
+                inventoryItem.quantity--;
+            }
+        }
+        addInventoryToHTML();
+    }
+}
+
+// Submit inventory
+submitButton.addEventListener('click', () => {
+    submitInventory();
+});
+
+function submitInventory() {
+    if (inventory.length > 0) {
         inventory.forEach(item => {
-            let id = item.product_id;
             let amount = item.quantity + item.product_Quantity;
-            idAmountDict[id] = amount;
-        })
+            idAmountDict[item.product_id] = amount;
+        });
         console.log(idAmountDict);
+        clearInventory();
     }
-    removeInventoryFromHTML();
 }
 
+// Clear inventory
+cancelButton.addEventListener('click', () => {
+    clearInventory();
+});
 
-function CancelInventory(){
-    removeInventoryFromHTML();
+function clearInventory() {
+    inventory.length = 0;
+    listInventoryHTML.innerHTML = '';
 }
+
+// Initialize app
+document.addEventListener('DOMContentLoaded', () => {
+    fetchProducts().then(() => {
+        addProductEventListeners();
+        submitButton.addEventListener('click', () => {
+            submitInventory();
+        });
+
+        cancelButton.addEventListener('click', () => {
+            clearInventory();
+        });
+    });
+});

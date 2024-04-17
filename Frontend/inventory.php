@@ -97,7 +97,6 @@
       </div>
     </div>
   </footer>
-    
+  <script type= "text/javasrcipt" src="../js/inventory.js"></script>
 </body>
-<script src="../js/inventory.js"></script>
 </html>
