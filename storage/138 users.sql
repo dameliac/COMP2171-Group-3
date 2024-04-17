@@ -34,8 +34,18 @@ CREATE TABLE `dorm` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
+  `middlename` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
+  `dateofbirth` DATE,
+  `gender` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `primarynum` varchar(50) NOT NULL,
+  `secondarynum` varchar(50) NOT NULL,
+  `hall` varchar(255) NOT NULL,
+  `block` varchar(255) NOT NULL,
+  `aptnum` varchar(255) NOT NULL,
   `usertype` enum('resident','maintenance','staff') NOT NULL,
+  `about` varchar(255) NOT NULL,
   `assignments` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -43,12 +53,12 @@ CREATE TABLE `dorm` (
 -- Dumping data for table `dorm`
 --
 
-INSERT INTO `dorm` (`username`, `password`, `firstname`, `lastname`, `usertype`, `assignments`) VALUES
-('123', '$2y$10$1ILtmY.cEKFRAwHR97SYWeLvB2gC70oJTiNDVuhWaS9edo7OgJK6y', 'Josh', 'Johnson', 'resident', 2),
-('789', '$2y$10$2S9Q0e7YrzCNBO2OTcDMHuJf2rJQUsKM3mGT6xJJMR5o/m.CKnqfi', 'Julio', 'Estabon', 'staff', 0),
-('456', '$2y$10$tX39EIdwLzWa5bNNK728mOn14n8adf/YQ891PF.e0yJPCnF27UPg.', 'Senku', 'Ishigami', 'maintenance', 0),
-('1234', '$2y$10$Yh16Hz2mwwHb8xmningJvu.sX.nziuTBfEUnyWDQi7frzmXWaXe7O', 'Andrew', 'Holness', 'resident', 1),
-('4567', '$2y$10$cGJzsfB0Jc4Ihth0jAqbse8vgM2z1XQKAxd12LhThN1SCrBP4/wWK', 'Bob', 'Marley', 'resident', 0);
+INSERT INTO `dorm` (`username`, `password`, `firstname`, `middlename`, `lastname`, `dateofbirth`, `gender`,`usertype`, `assignments`) VALUES
+('123', '$2y$10$1ILtmY.cEKFRAwHR97SYWeLvB2gC70oJTiNDVuhWaS9edo7OgJK6y', 'Josh', 'Richard','Johnson', '2000-06-30','Male','resident', 2),
+('789', '$2y$10$2S9Q0e7YrzCNBO2OTcDMHuJf2rJQUsKM3mGT6xJJMR5o/m.CKnqfi', 'Julio', 'Chris','Estabon', '1977-01-14', 'Male','staff', 0),
+('456', '$2y$10$tX39EIdwLzWa5bNNK728mOn14n8adf/YQ891PF.e0yJPCnF27UPg.', 'Rochelle', 'Aiko','Ishigami', '1999-05-28','Female','staff', 0),
+('1234', '$2y$10$Yh16Hz2mwwHb8xmningJvu.sX.nziuTBfEUnyWDQi7frzmXWaXe7O', 'Andrew', 'Eyton','Holness', '2002-08-10','Male','resident', 1),
+('4567', '$2y$10$cGJzsfB0Jc4Ihth0jAqbse8vgM2z1XQKAxd12LhThN1SCrBP4/wWK', 'Bob', 'Malachai','Marley', '2002-11-01','Male','resident', 0);
 
 -- --------------------------------------------------------
 
