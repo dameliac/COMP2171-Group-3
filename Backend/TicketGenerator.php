@@ -2,12 +2,9 @@
 session_start();
 $user = $_SESSION['userName'];
 
-require_once("../COMP2171-Group-3/storage/sql_connect.php");
+require_once("../storage/sql_connect.php");
 
 
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
 //query to get the usertype of the current user
 $typeQuery = $mysqli->prepare("SELECT usertype FROM dorm WHERE username=?");
 $typeQuery->bind_param("s",$user);
@@ -75,12 +72,10 @@ if ($adminQuery->execute()){
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ticket View</title>
-        <link rel="icon" type="image/logo" href="img\laundry logo.png">
-        <link rel="stylesheet" href="css\app.css">
-        <script src="app.js"></script>
+    
+        <link rel="icon" type="image/logo" href="../img/laundry logo.png">
+        <link rel="stylesheet" href="../css/app.css">
+        <script src="../js/app.js"></script>
     </head>
     <body>
         <h1>138 DORMITORY LAUNDRY</h1>
@@ -113,11 +108,8 @@ if ($adminQuery->execute()){
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ticket View</title>
-        <link rel="icon" type="image/logo" href="img\laundry logo.png">
-        <link rel="stylesheet" href="css\app.css">
+        <link rel="icon" type="image/logo" href="../img/laundry logo.png">
+        <link rel="stylesheet" href="../css/app.css">
     </head>
     <body>
         <h1>138 DORMITORY LAUNDRY</h1>

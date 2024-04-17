@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", function() {
         switch (menuItemer[0].children[0].textContent) {
           case "Reservation Schedule":
             schedule.onreadystatechange = scheduleDynam;
-            schedule.open("GET","MachineBooking.php",true);
+            schedule.open("GET","../Backend/MachineBooking.php",true);
             schedule.send();        
             break;
           case "Ticket Overview":
-            getPage("TicketGenerator.php"); 
+            getPage("../Backend/TicketGenerator.php"); 
             break;
           default:
             getPage("MaintenanceRequestForm.php")
@@ -143,20 +143,20 @@ document.addEventListener("DOMContentLoaded", function() {
         switch (action) {
           case 0:
             schedule.onreadystatechange = scheduleDynam;
-            schedule.open("GET","MachineBooking.php",true);
+            schedule.open("GET","../Backend/MachineBooking.php",true);
             schedule.send();
             break;
           case 1:
             getPage("WaitlistDisplay.php");
             break;
           case 2:
-            getPage("TicketGenerator.php");
+            getPage("../Backend/TicketGenerator.php");
             break;
           case 3:
-            getPage("MaintenanceRequest.php");
+            getPage("MaintenanceRequestForm.php");
             break;
           case 4:
-            getPage("BookingCancellation.php");
+            getPage("../Backend/bookingCancellation.php");
             break;
         }
       }

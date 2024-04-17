@@ -6,7 +6,7 @@ let listSoftenersProductsHTML = document.getElementById('Softeners');
 let listOthersProductsHTML = document.getElementById('Others');
 let listInventoryHTML = document.querySelector('.itemlist');
 let submitButton = document.querySelector('.submit');
-let cancelButton = document.querySelector('.cancel')
+let cancelButton = document.querySelector('.cancel');
 
 let listProducts = [];
 let PowderProducts = [];
@@ -16,7 +16,7 @@ let OthersProducts = [];
 
 let inventory = [];
 
-let idAmountDict = {}
+let idAmountDict = {};
 /*-----------QUANTITY VALUE----------- */
 
 /*function addDataToHTML(){
@@ -116,8 +116,6 @@ function fetchProducts() {
         .catch(error => console.error('Error fetching products:', error));
 }
 fetchProducts();
-
-
 
 
 
@@ -411,7 +409,6 @@ submitButton.addEventListener("click", SubmitInventory);
 cancelButton.addEventListener("click",CancelInventory)
 
 function SubmitInventory(){
-    console.log("Submit button pressed.")
     if(inventory.length > 0){
         inventory.forEach(item => {
             let id = item.product_id;

@@ -26,7 +26,7 @@ $mysqli->close();
     <div class="sideLinks"><a href="">Forum</a></div>
     <div class="sideLinks"><a href="../Frontend/profile.php">View Profile</a></div>
     <hr style="width:97%;text-align:left;margin-left:0; height:0.1px; background-color:#7e7e7e; margin-bottom:0">
-    <a href="../COMP2171-Group-3/index.php"> <button> Sign Out</button></a>
+    <a href="../Frontend/index.php"> <button> Sign Out</button></a>
 <?php elseif($userInfo['type']=="staff"):?>
     <img src="../img/admin.png" alt="profile pic" id="profile">
     <p><?=$userInfo['first'] . " " . $userInfo['last']?></p>

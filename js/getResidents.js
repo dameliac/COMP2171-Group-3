@@ -49,7 +49,7 @@ async function LookUp(query) {
 
     
     try {
-        const response = await fetch(`SearchTickets.php?search=${query}`);
+        const response = await fetch(`../Backend/SearchTickets.php?search=${query}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
