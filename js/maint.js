@@ -1,20 +1,23 @@
 function submitForm() {
     // Collect form data
-    const firstName = document.getElementById('fname').value;
-    const lastName = document.getElementById('lname').value;
-    const problemType = document.getElementById('problem').value;
-    const machineType = document.getElementById('machine').value;
-    const issueDescription = document.getElementById('txt').value;
-    const imageFile = document.getElementById('evidence').files[0]; // Get the first selected file
+    var firstName = document.getElementById("fname").value;
+    var lastName = document.getElementById("lname").value;
+    var problemType = document.getElementById("problem").value;
+    var machineType = document.getElementById("machine").value;
+    var description = document.getElementById("txt").value;
+    var evidenceFile = document.getElementById("evidence").files[0]; // Get the first selected file
 
     // Create FormData object to send form data through AJAX
-    const formData = new FormData();
-    formData.append('fname', firstName);
-    formData.append('lname', lastName);
-    formData.append('problem', problemType);
-    formData.append('machine', machineType);
-    formData.append('issue', issueDescription);
-    formData.append('evidence', imageFile); // Append the image file to the FormData object
+    var formData = {
+        firstName: firstName,
+        lastName: lastName,
+        problemType: problemType,
+        machineType: machineType,
+        description: description,
+        evidenceFile: evidenceFile
+    };
+
+    console.log(formData);
 
     // Create XMLHttpRequest object
     const formalRequest = new XMLHttpRequest();
