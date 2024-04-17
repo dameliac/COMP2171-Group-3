@@ -79,7 +79,7 @@ fetchProducts();
 
 /*-----------FECTCH--------------*/
 function fetchProducts() {
-    fetch('product.json')
+    fetch('../json/product.json')
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
@@ -411,6 +411,7 @@ submitButton.addEventListener("click", SubmitInventory);
 cancelButton.addEventListener("click",CancelInventory)
 
 function SubmitInventory(){
+    console.log("Submit button pressed.")
     if(inventory.length > 0){
         inventory.forEach(item => {
             let id = item.product_id;

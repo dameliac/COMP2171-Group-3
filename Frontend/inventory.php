@@ -13,7 +13,7 @@
         <div class="search-container">
         </div>
     </nav>
-    <div class="content">
+    <div class="content" id="inventory">
         <div class="left-section">
             <h3>Liquid Detergents</h3>
             <div class="item-row" id="Liquid">
@@ -97,6 +97,7 @@
       </div>
     </div>
   </footer>
-    <script src="../js/inventory.js"></script>
+    
 </body>
+<script src="../js/inventory.js"></script>
 </html>

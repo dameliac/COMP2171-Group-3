@@ -1,10 +1,10 @@
 <?php
+require_once ('../storage/sql_connect.php');
 
-$filterType = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 
+$filterType = isset($_GET['filter']) ? $_GET['filter'] : '';
 $ticketSrc = isset($_GET['search'])?$_GET['search']:'';
 
-require_once ('../COMP2171-Group-3/storage/sql_connect.php');
 $sql = "SELECT * FROM dorm, reservations WHERE dorm.username = reservations.user_name"; 
 
 date_default_timezone_set('America/Jamaica');
@@ -18,6 +18,9 @@ if (!empty($ticketSrc)){
   $sql .= " AND id = '$ticketSrc'";
 }
 
+if ($filterType =='all'){
+  $sql = "SELECT * FROM dorm, reservations WHERE dorm.username = reservations.user_name"; 
+}
 if ($filterType == 'Sunday') {
     $sql .= " AND day = 0";
 }elseif ($filterType == 'Monday') {

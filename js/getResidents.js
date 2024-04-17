@@ -5,12 +5,13 @@ var okBtn = document.getElementById("resident");
 
 
 
+// document.getElementById('residentsTable').addEventListener("DOMContentLoaded", function() {
+//     console.log("LOADED")
+//     filterContacts('all');
+// });
 
-document.addEventListener("DOMContentLoaded", function() {
-    filterContacts('all');
-    
-    
-});
+
+
 
 function Search(){
     for (var i = 0; i < addButtons.length; i++) {
@@ -31,8 +32,9 @@ function CloseSearch(){
 
 
 async function filterContacts(filterType) {
+    console.log("Executed")
     try {
-        const response = await fetch(`SearchTickets.php?filter=${filterType}`);
+        const response = await fetch(`../Backend/SearchTickets.php?filter=${filterType}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -55,7 +57,7 @@ async function LookUp(query) {
         document.getElementById('results').innerHTML = html;
         //document.getElementById("overlay").style.display = "none";
     } catch (error) {
-        console.error('Error fetching filtered residents:', error);
+        console.error('Error fetching ticket:', error);
     }
 }
    

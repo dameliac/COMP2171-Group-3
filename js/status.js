@@ -6,7 +6,7 @@
      */
     function machineStatusChange(event) {
         event.preventDefault(); 
-        fetch('MachineStatusUpdateHandler.php', {
+        fetch('../Backend/MachineStatusUpdateHandler.php', {
             method: 'POST',
             body: new FormData(event.target),
         })
@@ -22,10 +22,10 @@
         const machineImage = parentDiv.querySelector('img');
         if (data.includes('red')) {
             correspondingSpan.parentElement.classList.remove('Available');
-            machineImage.src = "img/washingred.png";
+            machineImage.src = "../img/washingred.png";
         } else if(data.includes("green")) {
             correspondingSpan.parentElement.classList.add('Available');
-            machineImage.src = "img/washing.png";
+            machineImage.src = "../img/washing.png";
         }
         else{
             console.log(data);
