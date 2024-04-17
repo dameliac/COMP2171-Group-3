@@ -4,10 +4,25 @@
 require_once("../storage/sql_connect.php");
 
 // Fetch data from the REQUEST table
-$sql = "SELECT * FROM request";
+$sql = "SELECT * FROM requests ORDER BY submissionTime DESC"; 
 $result = $mysqli ->query($sql);
 
+
+date_default_timezone_set('America/Jamaica');
+$submissionTime = date('Y-m-d H:i:s');
+$image = $_FILES["evidence"];
+
 ?>
+
+<!-- Display images with BLOB data from database -->
+<?php if($result->num_rows > 0){ ?> 
+        <?php while($row = $result->fetch_assoc()){ ?> 
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
+        <?php } ?> 
+    </div> 
+<?php }else{ ?> 
+    <p class="status error">Image not found...</p> 
+<?php }
 
 <html lang="en">
 <head>
@@ -37,9 +52,9 @@ $result = $mysqli ->query($sql);
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row["submission_time"] . "</td>";
+                    echo "<td>" . $row["submissionTime"] . "</td>";
                     echo "<td>" . $row["machine"] . "</td>";
-                    echo "<td>" . $row["typeofissue"] . "</td>";
+                    echo "<td>" . $row["problem"] . "</td>";
                     echo "<td>" . $row["description"] . "</td>";
                     echo "<td><a href='#' class='details-link'>View Details</a></td>";
                     echo "<td><button class='call-button'><i class='fas fa-phone icon fa-flip-horizontal' style='font-size:24px;color:blue'></i></button></td>";

@@ -38,5 +38,6 @@
       </div>
     </div>
   </footer>
+  <script type="text/javascript" src="../js/request.js"></script>
 </body>
 </html>
