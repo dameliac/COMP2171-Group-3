@@ -1,11 +1,14 @@
 <?php
   require_once ("../storage/sql_connect.php");
+ 
 
   $user = 'SELECT *FROM dorm';
+  
   
   if($result = mysqli_query($mysqli, $user)){
       if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
+    
         $id= $row['username'];
         $fname = $row['firstname'];
         $mname = $row['middlename'];
@@ -236,6 +239,7 @@
                           <label class="form-control-label" for="input-gender">Gender</label>
                           <select id="input-gender" class="form-control form-control-alternative" required>
                               <option value="">Select Gender</option>
+                              <option value=""><?php echo $gender; ?></option>
                               <option value="Male">Male</option>
                               <option value="Female">Female</option>
                               <option value="Female">Prefer not to say</option>
