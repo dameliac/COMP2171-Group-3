@@ -30,7 +30,7 @@ $mysqli->close();
 <?php elseif($userInfo['type']=="staff"):?>
     <img src="../img/admin.png" alt="profile pic" id="profile">
     <p><?=$userInfo['first'] . " " . $userInfo['last']?></p>
-    <div class="sideLinks"><a href="../Frontend/base.html">Dashboard</a></div>
+    <div class="sideLinks"><a href="../Frontend/dashboard.php">Dashboard</a></div>
     <div class="sideLinks"><a href="../Frontend/profile.php">View Profile</a></div>
     <div class="sideLinks"><a href="../Frontend/displayforum.php">Forum</a></div>
     <div class="sideLinks"><a href="../Backend/MachineStatusUpdate.php">Machine Status</a></div>

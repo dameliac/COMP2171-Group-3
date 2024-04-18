@@ -1,28 +1,31 @@
 <?php
   require_once ("../storage/sql_connect.php");
  
+ 
 
   $user = 'SELECT *FROM dorm';
+
   
-  
+  // $userInfo = getTyped($mysqli, $username);//using the sql query from role management data file to get the user's username.
+
+
   if($result = mysqli_query($mysqli, $user)){
       if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
-    
         $id= $row['username'];
-        $fname = $row['firstname'];
-        $mname = $row['middlename'];
-        $lname = $row['lastname'];
-        $dob = $row['dateofbirth'];
-        $gender = $row['gender'];
-        $email = $row['email'];
-        $primary = $row['primarynum'];
-        $secondary = $row['secondarynum'];
-        $hall = $row['hall'];
-        $block = $row['block'];
-        $aptnum = $row['aptnum'];
-        $about = $row['about'];
-  
+          $fname = $row['firstname'];
+          $mname = $row['middlename'];
+          $lname = $row['lastname'];
+          $dob = $row['dateofbirth'];
+          $gender = $row['gender'];
+          $email = $row['email'];
+          $primary = $row['primarynum'];
+          $secondary = $row['secondarynum'];
+          $hall = $row['hall'];
+          $block = $row['block'];
+          $aptnum = $row['aptnum'];
+          $about = $row['about'];
+        
       }
       mysqli_free_result($result);
     } else{

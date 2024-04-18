@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
         switch(action){
             case 0:
                 //dashboard.php
-                getPage("MaintenanceRequestForm.php");
+                getPage("dashboard.php");
                 break;
             case 1:
                 //viewProfile
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 getPage("TicketGenerator.php")
                 break;
             case 1:
-                getPage("MaintenanceRequest.php");
+                getPage(".php");
                 break;
         }
       }
