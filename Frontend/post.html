@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Thread</title>
+    <link rel="stylesheet" href="post.css">
+    <script src="p.js" ></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Forum Message Form</h2>
+        <form action="#" method="post">
+            <label for="title">Subject:</label>
+            <input type="text" id="title" name="title"><br>
+            <label>
+                <input type="checkbox" id="highPriority" name="highPriority"> Is this a high priority message?
+            </label><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" style="font-weight:normal;" requ></textarea>
+            <!-- Buttons for text formatting -->
+            <button type="button" id="boldBtn">Bold</button>
+            <button type="button" id="italicBtn">Italic</button>
+            <button type="button" id="underlineBtn">Underline</button><br><br>       
+            <div class="cpParent">
+                <a href="forum.html"><button id="btn1">Go Back</button></a>
+                <div class="cp">
+                    <button id="btn2">Clear All</button>
+                    <button id="btn3">Post</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

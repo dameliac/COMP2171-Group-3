@@ -1,0 +1,23 @@
+[
+    {
+        "submission_time": "2024-04-10",
+        "machine": "Washing Machine",
+        "problem": "Mechanical",
+        "description": "Issue description for Washing Machine",
+        "details": ["photo1.jpg"]
+    },
+    {
+        "submission_time": "2024-04-09",
+        "machine": "Dryer",
+        "problem": "Electrical",
+        "description": "Issue description for Dryer",
+        "details": []
+    },
+    {
+        "submission_time": "2024-04-08",
+        "machine": "Sink",
+        "problem": "Plumbing",
+        "description": "Issue description for Sink plumbing",
+        "details": []
+    }
+]

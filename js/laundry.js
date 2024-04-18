@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     menuList.onreadystatechange = menuLister;
-    menuList.open("GET", "RoleManagement.php", true);
+    menuList.open("GET", "../Backend/RoleManagement.php", true);
     menuList.send();
 
 
@@ -106,14 +106,14 @@ document.addEventListener("DOMContentLoaded", function() {
         switch (menuItemer[0].children[0].textContent) {
           case "Reservation Schedule":
             schedule.onreadystatechange = scheduleDynam;
-            schedule.open("GET","MachineBooking.php",true);
+            schedule.open("GET","../Backend/MachineBooking.php",true);
             schedule.send();        
             break;
           case "Ticket Overview":
-            getPage("TicketGenerator.php"); 
+            getPage("../Backend/TicketGenerator.php"); 
             break;
           default:
-            getPage("MaintenanceRequestForm.php")
+            getPage("dashboard.php")
             break;
         }
     }
@@ -143,21 +143,28 @@ document.addEventListener("DOMContentLoaded", function() {
         switch (action) {
           case 0:
             schedule.onreadystatechange = scheduleDynam;
-            schedule.open("GET","MachineBooking.php",true);
+            schedule.open("GET","../Backend/MachineBooking.php",true);
             schedule.send();
             break;
           case 1:
             getPage("WaitlistDisplay.php");
             break;
           case 2:
-            getPage("TicketGenerator.php");
+            getPage("../Backend/TicketGenerator.php");
             break;
           case 3:
-            getPage("MaintenanceRequest.php");
+            getPage("MaintenanceRequestForm.php");
             break;
           case 4:
-            getPage("BookingCancellation.php");
+            getPage("../Backend/bookingCancellation.php");
             break;
+          case 5:
+            getPage("displayforum.php");
+            break;
+          case 6:
+            getPage("profile.php");
+            break;
+
         }
       }
 
@@ -165,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
         switch(action){
             case 0:
                 //dashboard.php
-                getPage("MaintenanceRequestForm.php");
+                getPage("dashboard.php");
                 break;
             case 1:
                 //viewProfile
@@ -173,11 +180,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case 2:
                 //Forum
-                getPage("Ticket Database.php");
+                getPage("displayforum.php");
                 break;
             case 3:
                 //Machine Status
-                getPage("MachineStatusUpdate.php");
+                getPage("../Backend/MachineStatusUpdate.php");
                 break;
             case 4:
                 //Ticket Database Lookup
@@ -185,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case 5:
                 //Laundry Inventory
-                getPage("Ticket Database.php");
+                getPage("inventory.php");
                 break;
             case 6:
                 //Request Overview
@@ -200,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 getPage("TicketGenerator.php")
                 break;
             case 1:
-                getPage("MaintenanceRequest.php");
+                getPage("dashboard.php");
                 break;
         }
       }
