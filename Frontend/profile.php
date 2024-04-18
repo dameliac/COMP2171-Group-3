@@ -1,5 +1,14 @@
 <?php
+
+  session_start();
+  include "../Backend/RoleManagementData.php";
   require_once ("../storage/sql_connect.php");
+
+  $username = $_SESSION['userName']; //get the usertype as well as firstname and lastname of current user
+
+  $userInfo = getTyped($mysqli,$username);
+ 
+  $_SESSION['id'] = $userInfo['id'];
  
  
 
@@ -12,7 +21,8 @@
   if($result = mysqli_query($mysqli, $user)){
       if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
-        $id= $row['username'];
+        if ($userInfo['id']== $row['username']){
+          $id =$row['username'];
           $fname = $row['firstname'];
           $mname = $row['middlename'];
           $lname = $row['lastname'];
@@ -25,7 +35,7 @@
           $block = $row['block'];
           $aptnum = $row['aptnum'];
           $about = $row['about'];
-        
+        }
       }
       mysqli_free_result($result);
     } else{
@@ -103,14 +113,7 @@
         <div class="row">
           <div class="col-lg-7 col-md-10" style="width: 800px;">
           <?php
-            session_start();
-              include "../Backend/RoleManagementData.php";
-              require_once ("../storage/sql_connect.php");
-
-              $username = $_SESSION['userName'];
-              //get the usertype as well as firstname and lastname of current user
-
-              $userInfo = getTyped($mysqli,$username);
+            
 
               if($userInfo['type']=="resident"):
                 echo "<h1 class='display-2 text-white';>Hello ". $userInfo['first'] . " " . $userInfo['last']."</h1>";

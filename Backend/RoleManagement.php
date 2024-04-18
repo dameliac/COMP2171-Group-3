@@ -3,13 +3,17 @@ session_start();
 include "../Backend/RoleManagementData.php";
 require_once ("../storage/sql_connect.php");
 
+
 $username = $_SESSION['userName'];
 //get the usertype as well as firstname and lastname of current user
 
 $userInfo = getTyped($mysqli,$username);
 
+
+
 $mysqli->close();
 ?>
+
 
 <!--based on usertype the menu is loaded with different functions to be used by each user-->
 <img src="../img/closeButton.png" alt="Close Button" id="close">
