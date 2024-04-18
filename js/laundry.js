@@ -158,6 +158,13 @@ document.addEventListener("DOMContentLoaded", function() {
           case 4:
             getPage("../Backend/bookingCancellation.php");
             break;
+          case 5:
+            getPage("displayforum.php");
+            break;
+          case 6:
+            getPage("profile.php");
+            break;
+
         }
       }
 
@@ -200,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 getPage("TicketGenerator.php")
                 break;
             case 1:
-                getPage(".php");
+                getPage("dashboard.php");
                 break;
         }
       }
