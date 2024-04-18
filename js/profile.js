@@ -11,7 +11,8 @@ function Update(){
            if (xhr.readyState == 4 && xhr.status == 200) {
                // If request is successful, display response in a popup
                var popup = window.open("", "Update Profile", "width=max-content,height=max-content");
-              popup.document.write('<html><head><script src = "../js/profile.js"></script><link rel="stylesheet" type="text/css" href="../css/viewprofile.css"><title>Update Profile</title></head><body>' + xhr.responseText + '</body></html>');
+               popup.document.write('<html><head><link rel="stylesheet" type="text/css" href="../css/viewprofile.css"><title>Update Profile</title></head><body>' + xhr.responseText + '<script src="../js/profile.js"></script></body></html>');
+
            }
        };
        xhr.send();
@@ -26,19 +27,19 @@ function Save(){
         save[i].addEventListener("click", function() {
           
              // Collect form data
-             var id = document.getElementById("input-username");
-             var email = document.getElementById("input-email");
-             var firstName = document.getElementById("input-first-name");
-             var middleName = document.getElementById("input-middle-name");
-             var lastName = document.getElementById("input-last-name");
-             var dob = document.getElementById("input-date-birth");
-             var gender = document.getElementById("input-gender");
-             var primary = document.getElementById("input-postal-code");
-             var secondary = document.getElementById("input-postal-code-2");
-             var hall = document.getElementById("input-city");
-             var block = document.getElementById("input-country");
-             var apt = document.getElementById("input-apt");
-             var about = document.getElementById("about");
+             var id = document.getElementById("input-username").value;
+             var email = document.getElementById("input-email").value;
+             var firstName = document.getElementById("input-first-name").value;
+             var middleName = document.getElementById("input-middle-name").value;
+             var lastName = document.getElementById("input-last-name").value;
+             var dob = document.getElementById("input-date-birth").value;
+             var gender = document.getElementById("input-gender").value;
+             var primary = document.getElementById("input-postal-code").value;
+             var secondary = document.getElementById("input-postal-code-2").value;
+             var hall = document.getElementById("input-city").value;
+             var block = document.getElementById("input-country").value;
+             var apt = document.getElementById("input-apt").value;
+             var about = document.getElementById("about").value;
 
             // Create a FormData object
             var formData = new FormData();
@@ -74,15 +75,19 @@ function Save(){
             };
 
             // Send the FormData object
-            formalRequest.send(formData);
+           for (var i =0; i < formData.length;i++) {
+                console.log(formData[i]);
+            }
 
-            var forms = document.getElementsByClassName("allforms");
+            formalRequest.send(formData);
+           
+
+            var forms = document.getElementById("myform");
             var fields = forms.elements;
             for (var i = 0; i < fields.length; i++) {
             fields[i].value="";
             }
-              // Close the popup window
-            window.close();
+          
         });
     }
 }

@@ -32,9 +32,10 @@ function submitForm() {
     formalRequest.onerror = function () {
         alert("Request failed");
     };
-
+    console.log(formData);
     // Send the FormData object
     formalRequest.send(formData);
+    
 
     var forms = document.getElementsByClassName("allforms");
     var fields = forms.elements;

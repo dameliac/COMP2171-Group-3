@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateParams = implode(", ", $updateFields);
         
         // Prepare and execute the update query
-        $stmt = $mysqli->prepare("UPDATE dorm SET $updateParams WHERE id = $userid"); // Assuming the ID is 1
+        $stmt = $mysqli->prepare("INSERT INTO ($updateParams) WHERE id = $userid"); // Assuming the ID is 1
         $stmt->bind_param($types, ...$values);
         $stmt->execute();
 
@@ -111,8 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="../js/profile.js"></script>
-
 
 <body>
     <div class="card bg-secondary shadow">
@@ -122,12 +120,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3 class="mb-0">My account</h3>
                     </div>
                     <div class="col-4 text-right">
-                    <a href="#" type="submit" class="save btn-sm btn-primary" onclick="Save()">Save</a>
+                    <a href="javascript:void(0)" class="save btn-sm btn-primary" onclick="Save()">Save</a>
                     </div>
                 </div>
                 </div>
                 <div class="card-body">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <form method="POST" action="../Backend/updateprofile.php" id="myform">
                     <h6 class="heading-small text-muted mb-4">User information</h6>
                     <div class="pl-lg-4">
                     <div class="row">
@@ -251,4 +249,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             </div>
 </body>
+<script src="../js/profile.js"></script>
 </html>

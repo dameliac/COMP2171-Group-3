@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let dayName = this.textContent.trim();
                 let dayNumber = daysOfWeek[dayName];
                 const scheduleRequest = new XMLHttpRequest();
-                scheduleRequest.open('POST', 'MachineBooking.php', true);
+                scheduleRequest.open('POST', '../Backend/MachineBooking.php', true);
                 scheduleRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                 scheduleRequest.onreadystatechange = function () {
                     if (scheduleRequest.readyState === XMLHttpRequest.DONE) {
@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let machine = machineFinder.querySelector('span').textContent;
     
                 let timeRequest = new XMLHttpRequest();
-                timeRequest.open('POST', 'MachineBookingHandler.php', true);
+                timeRequest.open('POST', '../Backend/MachineBookingHandler.php', true);
                 timeRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     
                 timeRequest.onreadystatechange = function () {
