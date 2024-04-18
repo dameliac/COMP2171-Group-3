@@ -316,7 +316,7 @@
       max-width: 1140px;
     }
   }
-  
+
   .container-fluid {
     width: 100%;
     margin-right: auto;
@@ -358,13 +358,16 @@
   }
   
   .col-4 {
-    max-width: 33.33333%;
+    max-width: 3.33333%;
     flex: 0 0 33.33333%;
   }
   
+  .save{
+    text-decoration: none;
+  }
   .col-8 {
-    max-width: 66.66667%;
-    flex: 0 0 66.66667%;
+    max-width: 100.66667%;
+    flex: 0 0 90.66667%;
   }
   
   @media (min-width: 768px) {
@@ -491,6 +494,7 @@
   
   textarea.form-control {
     height: auto;
+    width: 900px;
   }
   
   .form-group {
@@ -529,6 +533,19 @@
       width: auto;
     }
   }
+
+  .overview {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1;
+    backdrop-filter: blur(2px);
+  }
+  
   
   .btn {
     font-size: 1rem;
@@ -546,6 +563,7 @@
     white-space: nowrap;
     border: 1px solid transparent;
     border-radius: .375rem;
+    text-decoration: none;
   }
   
   @media screen and (prefers-reduced-motion: reduce) {
@@ -971,8 +989,8 @@
     border-radius: .375rem;
     background-color: #fff;
     background-clip: border-box;
-    width: 1050px;
-    margin-left: 200px;
+    width: 1320px;
+    margin-left: 100px;
   }
   
   .card>hr {

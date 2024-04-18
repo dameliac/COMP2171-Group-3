@@ -17,7 +17,7 @@
   <div class="container">
     <!-- Card content goes here -->
    <header class="header">
-   <!--<img src="../COMP2171-Group-3/img/laundry logo.png">--><h1 id="maint">UniFresh Laundry Xpress</h1>
+   <h1 id="maint">UniFresh Laundry Xpress</h1>
    <img id="banner" src="../img/laundry.jpg">
    <div class = "heading"><h2>Maintenance Request Form</h2></div>
    </header>

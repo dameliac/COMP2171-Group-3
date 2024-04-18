@@ -37,7 +37,8 @@ function submitForm() {
     formalRequest.send(formData);
 
     var forms = document.getElementsByClassName("allforms");
-    for (var i = 0; i < forms.length; i++) {
-    forms[i].reset();
+    var fields = forms.elements;
+    for (var i = 0; i < fields.length; i++) {
+    fields[i].value="";
     }
 }

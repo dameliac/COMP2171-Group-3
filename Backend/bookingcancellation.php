@@ -88,7 +88,7 @@ if ($infoQuery->execute()){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Cancellation</title>
-    <link rel="stylesheet" href="css\cancel.css"/>
+    <link rel="stylesheet" href="../css/cancel.css"/>
 </head>
 <body>
     <h1>UniFresh Laundry Xpress</h1>
