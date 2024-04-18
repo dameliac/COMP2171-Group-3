@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
             getPage("../Backend/TicketGenerator.php"); 
             break;
           default:
-            getPage("MaintenanceRequestForm.php")
+            getPage("dashboard.php")
             break;
         }
     }
