@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/newforum.css">
+    <title>Forum</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"> 
+            <img src="../img/logo.jpeg" alt="logo image">
+        </div>
+        <div class="name"><a href="#"><h1>UNIFRESH FORUMS</h1></a></div>
+        <div class="content">
+            <h2>Home</h2>
+            <h2>About</h2>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="first-section">
+            <div class="thread">
+                <div class="chat">
+                    <button type="button" onclick="yourFunction()">
+                        <img src="../img/chat.svg" alt="Button Image">
+                    </button>
+                    <h2>Your Threads</h2>
+                </div>
+                <div class="chat">
+                    <button type="button" onclick="yourFunction()">
+                        <img src="../img/saved.svg" alt="Button Image">
+                    </button>
+                    <h2>Saved Threads</h2>
+                </div>
+            </div>
+            <div class="Forum-List">
+                <div class="header">
+                    <h2>Staff Online</h2>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="second-section">
+            <div class="add-text">
+                <input type="text" id="textInput" placeholder="MAKE A POST">
+                <button class="plus-button" onclick="openModal()">+</button>
+            </div>
+            <div class="posts" id="postField">
+            </div>
+        </div>
+        <div class="third-section">
+            <div class="Staff">
+                <div class="header">
+                    <h2>Forum Subject</h2>
+                    <div class="post_list" id="post_list">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="Post-Threads">
+                <button type="button" onclick="yourFunction()">
+                    <img src="../img/chat-black.svg" alt="Button Image">
+                </button>
+                <div class="information">
+                    <h5>Threads</h2>
+                    <p>10</p> 
+                </div>
+            </div>
+            <div class="members">
+                <button type="button" onclick="yourFunction()">
+                    <img src="../img/members.svg" alt="Button Image">
+                </button>
+                <div class="information">
+                    <h5>Members</h2>
+                    <p>3</p> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <label for="nameInput">Subject:</label>
+            <input type="text" id="nameInput" placeholder="Post Subject...">
+            <div class="Posting">
+                <label for="textInputModal">Message:</label>
+                <input type="text" id="textInputModal" placeholder="Post Message..."> 
+            </div>
+            <button onclick="closeModal()">Cancel</button>
+            <button onclick="saveText()">Save</button>
+        </div>
+    </div>
+
+
+    <script src="../js/newforum.js" ></script>
+    
+</body>
+</html>
