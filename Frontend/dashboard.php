@@ -51,7 +51,7 @@ if ($result) {
 </head>
 <body>
 
-<div class ="over">
+<!-- <div class ="over"> -->
 
 
     <div class="top">

@@ -1,6 +1,8 @@
 body {
   font-family: open, sans-serif;
-  
+  background-image: url(https://images.pexels.com/photos/2565272/pexels-photo-2565272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -28,9 +30,7 @@ header p {
 }
 
 .over{
-  background-image: url(https://images.pexels.com/photos/2565272/pexels-photo-2565272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-  background-repeat: no-repeat;
-  background-size: cover;
+ 
   position: relative;
   z-index: -1;
 
