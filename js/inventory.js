@@ -19,64 +19,6 @@ let inventory = [];
 let idAmountDict = {};
 /*-----------QUANTITY VALUE----------- */
 
-/*function addDataToHTML(){
-
-    if (!listProductHTML) {
-        console.error("listProductHTML element not found.");
-        return;
-    }
-    listProductHTML.innerHTML = '';
-    if (listProducts.length > 0){
-        listProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.classList.add('card');
-            newProduct.innerHTML= `
-                    <img src="${product.image}" alt="Example Image">
-                    <div class="card-content">
-                      <h3>${product.name}</h3>
-                      <div class="btn-section">
-                        <button type="submit" value="remove">-</button>
-                        <button type="submit" value="add">+</button>
-                      </div>`;
-            listProductHTML.appendChild(newProduct);
-        })
-    }
-}
-document.addEventListener("DOMContentLoaded", function() {
-    addDataToHTML();
-});
-
-
-const initApp = () => {
-    fetch('product.json')
-    .then(response => response.json())
-    .then(data => {
-        listProducts = data;
-        console.log(listProducts);
-        addDataToHTML();
-    })
-    .catch(error=>{
-        console.error('Error fecthing products',error);
-    });
-}
-initApp();
-
-function fetchProducts() {
-    fetch('product.json')
-        .then(response => response.json())
-        .then(data => {
-            // Display each item in the console
-            data.forEach(item => {
-                listProducts.push(item);
-            });
-            console.log(listProducts);
-            addDataToHTML();
-        })
-        .catch(error => console.error('Error fetching products:', error));
-}
-fetchProducts();
-*/
-
 /*-----------FECTCH--------------*/
 function fetchProducts() {
     fetch('../json/product.json')
