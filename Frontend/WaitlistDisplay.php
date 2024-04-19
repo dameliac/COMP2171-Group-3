@@ -74,7 +74,7 @@ if ($machineQuery->execute()) {
 <body>
 
     <div id="waitlist-container">
-        <h1>UniFresh Laundry Xpress</h1>
+        <h1 class="heading">UniFresh Laundry Xpress</h1>
         <h2>Queue Display</h2>
         <h3>NOW SERVING</h3>
         <table id="nowserving-table">

@@ -6,6 +6,11 @@ body {
  
 }
 
+.heading{
+  font-size: 3rem;
+  width: max-content;
+}
+
 #waitlist-container {
   max-width: 600px;
   margin: 50px auto;
@@ -18,7 +23,7 @@ body {
 }
 
 thead{
-  background-color: #0F52BA;
+  background-color: #2586d0;
 }
 
 table{
