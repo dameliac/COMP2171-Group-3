@@ -11,8 +11,8 @@ function Update(){
            if (xhr.readyState == 4 && xhr.status == 200) {
                // If request is successful, display response in a popup
                var popup = window.open("", "Update Profile", "width=max-content,height=max-content");
-               popup.document.write('<html><head><link rel="stylesheet" type="text/css" href="../css/viewprofile.css"><title>Update Profile</title></head><body>' + xhr.responseText + '<script src="../js/profile.js"></script></body></html>');
-
+               popup.document.write('<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" href="../css/viewprofile.css"><title>Update Profile</title></head><body>' + xhr.responseText + '<script src="../js/profile.js"></script></body></html>');
+                //document.getElementById("dynamic").innerHTML =  xhr.responseText;
            }
        };
        xhr.send();
@@ -22,9 +22,8 @@ function Update(){
 
 
 function Save(){
-    var save =document.getElementsByClassName("save");
-    for (var i = 0; i < save.length; i++) {
-        save[i].addEventListener("click", function() {
+    var save =document.querySelector(".save");
+        save.addEventListener("click", function() {
           
              // Collect form data
              var id = document.getElementById("input-username").value;
@@ -64,8 +63,10 @@ function Save(){
             // Set up onload and onerror handlers
             formalRequest.onload = function () {
                 if (formalRequest.status == 200) {
+                    console.log(formalRequest.responseText);
                     alert("Form Submitted");
                 } else {
+                    console.log(formalRequest.responseText);
                     alert("ERROR: Form submission failed. Please try again.");
                 }
             };
@@ -75,19 +76,15 @@ function Save(){
             };
 
             // Send the FormData object
-           for (var i =0; i < formData.length;i++) {
-                console.log(formData[i]);
-            }
+            console.log(id,email,firstName,middleName,lastName,dob,gender,primary,secondary,hall,block,apt,about);
+          
+                console.log(formData);
+           
 
             formalRequest.send(formData);
            
 
-            var forms = document.getElementById("myform");
-            var fields = forms.elements;
-            for (var i = 0; i < fields.length; i++) {
-            fields[i].value="";
-            }
+            
           
         });
     }
-}
