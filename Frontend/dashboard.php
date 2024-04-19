@@ -51,27 +51,42 @@ if ($result) {
 </head>
 <body>
 
-<div class="top">
-    <p></p>
-    <a href = "aboutus.html" ><button>About Us</button></a>
-</div>
+<div class ="over">
 
-<!-- New content -->
-<div class="mid-text">
-    <p>UniFresh Laundry Xpress</p>
-    <div class="innermid-text"><i>"Where Cleanliness is Our Success!"</i></div>
-</div>
 
-<!-- Four cards with longitudinal separators -->
-<div class="cards-container">
-    <div class="card1"><h3>Requests</h3><p>NUMBER INSERT HERE</p></div>
-    <div class="separator"></div>
-    <div class="card2"><h3>Tickets</h3><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="40px" height="40px"><path d="M21,15V3a3,3,0,0,0-3-3H14V1a2,2,0,0,1-4,0V0H6A3,3,0,0,0,3,3V15H7v2H3v7h7V23a2,2,0,0,1,4,0v1h7V17H17V15Zm-7,2H10V15h4Z"/></svg><p><?php echo count($ticketArray); ?></p></div>
-    <div class="separator"></div>
-    <div class="card3"><h3>Inventory</h3><p>NUMBER INSERT HERE</p></div>
-    <div class="separator"></div>
-    <div class="card4"><h3>Forum</h3><p>NUMBER INSERT HERE</p></div>
-</div>
+    <div class="top">
+        <p></p>
+        <a href = "aboutus.html" ><button>About Us</button></a>
+    </div>
 
+    <!-- New content -->
+    <div class="mid-text">
+        <p>UniFresh Laundry Xpress</p>
+        <div class="innermid-text"><i>"Where Cleanliness is Our Success!"</i></div>
+    </div>
+
+    <!-- Four cards with longitudinal separators -->
+    <div class="cards-container">
+        <div class="card1"><h3>Requests</h3><img width="35" height="35" src="https://img.icons8.com/ios-filled/50/FFFFFF/request-service.png" alt="request-service"/><p> <?php echo count($requestArray) ?></p></div>
+        <div class="separator"></div>
+        <div class="card2"><h3>Tickets</h3><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" alt="two-tickets"/><p><?php echo count($ticketArray); ?></p></div>
+        <div class="separator"></div>
+        <div class="card3"><h3>Inventory</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/move-by-trolley.png" alt="move-by-trolley"/><p>NUMBER INSERT HERE</p></div>
+        <div class="separator"></div>
+        <div class="card4"><h3>Forum</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/communication.png" alt="communication" /><p>NUMBER INSERT HERE</p></div>
+    </div>
+
+    <span class = "masked"></span>
+<footer class="footer">
+    <div style="text-align: center;">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>&copy; UniFresh Laundry Xpress 2024. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>

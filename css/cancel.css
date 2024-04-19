@@ -7,18 +7,18 @@
     display: inline-grid;
     justify-content: center;
     align-content: center;
-    font-family: 'Lilita One','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: open, sans-serif;
     cursor: pointer;
 }
 
 .timeSlotted.selected{
-    background-color: cadetblue;
+    background-color: #419fe8;
     color: white;
 }
 
 .timeSlotted.Unavailable{
     pointer-events: none;
-    background-color: gray;
+    background-color: #c8c8c8;
     color: white;
 }
 
@@ -45,5 +45,5 @@ h2{
     align-items: center;
     justify-content: center;
     display: flex;
-    font-family: "Lilita One";
+    font-family: open, sans-serif;
 }

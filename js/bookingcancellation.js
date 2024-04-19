@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded",function(){
                     const day = slotInfo[3];
                     console.log("Clicked:", machine);
                     let cancelRequest = new XMLHttpRequest();
-                    cancelRequest.open('POST','BookingCancellation.php',true);
+                    cancelRequest.open('POST','../Backend/bookingCancellation.php',true);
                     cancelRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                     cancelRequest.onreadystatechange = function () {
                         if (cancelRequest.readyState === XMLHttpRequest.DONE) {

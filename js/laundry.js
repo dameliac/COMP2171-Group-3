@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
             getPage("../Backend/bookingCancellation.php");
             break;
           case 5:
-            getPage("displayforum.php");
+            getPage("forum.html");
             break;
           case 6:
             getPage("profile.php");
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case 2:
                 //Forum
-                getPage("displayforum.php");
+                getPage("forum.html");
                 break;
             case 3:
                 //Machine Status
