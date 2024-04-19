@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <button class="clear-button"><a href="#">BACK</a></button>
+        <!-- <button class="clear-button"><a href="#">BACK</a></button> -->
         <div class="logo"><a href="#">Laundry Inventory</a></div>
         <div class="search-container">
         </div>

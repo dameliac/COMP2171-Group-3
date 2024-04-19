@@ -8,7 +8,7 @@ $username = $_SESSION['userName']; //get the usertype as well as firstname and l
   $userInfo = getTyped($mysqli,$username);
  
   $_SESSION['id'] = $userInfo['id'];
-  $userid = $userInfo['id'];
+  $userid = $_SESSION['id'];
 
   $updateFields = [];
   $types = "";

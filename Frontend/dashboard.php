@@ -67,13 +67,31 @@ if ($result) {
 
     <!-- Four cards with longitudinal separators -->
     <div class="cards-container">
-        <div class="card1"><h3>Requests</h3><img width="35" height="35" src="https://img.icons8.com/ios-filled/50/FFFFFF/request-service.png" alt="request-service"/><p> <?php echo count($requestArray) ?></p></div>
+        <div class="card1"><h3>Requests</h3><img width="35" height="35" src="https://img.icons8.com/ios-filled/50/FFFFFF/request-service.png" alt="request-service"/><p> <?php echo "Overall Quantity: " .count($requestArray) ?></p></div>
         <div class="separator"></div>
-        <div class="card2"><h3>Tickets</h3><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" alt="two-tickets"/><p><?php echo count($ticketArray); ?></p></div>
+        <div class="card2"><h3>Tickets</h3><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" alt="two-tickets"/><p><?php echo "Overall Quantity: ". count($ticketArray); ?></p></div>
         <div class="separator"></div>
-        <div class="card3"><h3>Inventory</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/move-by-trolley.png" alt="move-by-trolley"/><p>NUMBER INSERT HERE</p></div>
+        <div class="card3"><h3>Inventory</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/move-by-trolley.png" alt="move-by-trolley"/><p>
+            <?php
+            $jsonString = file_get_contents('../json/product.json');
+            $data = json_decode($jsonString, true);
+            $overallQuantity = 0;
+
+            // Check if decoding was successful
+            if ($data === null) {
+                // Error handling if JSON decoding failed
+                echo "Error decoding JSON.";
+            } else {
+                foreach ($data as $item) {
+                    $overallQuantity += $item['Quantity'];
+                }
+
+                echo "Overall Quantity: " . $overallQuantity;
+            }
+            ?>
+        </p></div>
         <div class="separator"></div>
-        <div class="card4"><h3>Forum</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/communication.png" alt="communication" /><p>NUMBER INSERT HERE</p></div>
+        <div class="card4"><h3>Forum</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/communication.png" alt="communication" /><p><?php echo "Overall Quantity: 0" ?></p></div>
     </div>
 
     <span class = "masked"></span>
