@@ -122,10 +122,12 @@ fetchProducts();
 
 /*----------------LIQUID PRODUCTS-----------------*/
 function addLiquidProductsToHTML() {
+    console.log(listLiquidProductsHTML);
     if (!listLiquidProductsHTML) {
         console.error("listLiquidProductsHTML element not found.");
         return;
     }
+    
 
     listLiquidProductsHTML.innerHTML = '';
     if (LiquidProducts.length > 0) {
@@ -151,10 +153,12 @@ function addLiquidProductsToHTML() {
 
 /*----------------POWDER PRODUCTS-----------------*/
 function addPowderProductsToHTML() {
+    console.log(listPowderProductsHTML);
     if (!listPowderProductsHTML) {
         console.error("listPowderProductsHTML element not found.");
         return;
     }
+   
 
     listPowderProductsHTML.innerHTML = '';
     if (PowderProducts.length > 0) {
@@ -177,6 +181,8 @@ function addPowderProductsToHTML() {
 }
 /*----------------SOFTERNERS PRODUCTS-----------------*/
 function addSoftenersProductsToHTML() {
+    console.log(listSoftenersProductsHTML);
+
     if (!listSoftenersProductsHTML) {
         console.error("listSoftenersProductsHTML element not found.");
         return;
@@ -202,6 +208,8 @@ function addSoftenersProductsToHTML() {
     }
 }
 function addOthersProductsToHTML() {
+    console.log(listOthersProductsHTML);
+
     if (!listOthersProductsHTML) {
         console.error("listOthersProductsHTML element not found.");
         return;
@@ -234,7 +242,7 @@ function addDataToHTML() {
     addOthersProductsToHTML();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+body.addEventListener("DOMContentLoaded", function() {
     addDataToHTML();
 });
 

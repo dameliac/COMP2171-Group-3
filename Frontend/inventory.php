@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventory.css">
-    <script type=text/javascript.js src="../js/inventory.js"> </script>
+    
     <title>Product page</title>
 </head>
 <body>
@@ -98,6 +98,6 @@
       </div>
     </div>
   </footer>
-    
+  <script type=text/javascript.js src="../js/inventory.js"> </script>
 </body>
 </html>
