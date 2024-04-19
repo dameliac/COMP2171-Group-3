@@ -260,13 +260,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Phone Number (Primary)</label>
-                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(876)-xxx-xxxx" readonly>
+                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" value ="<?php echo $primary?>" readonly>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Phone Number (Secondary)</label>
-                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(878)-xxx-xxxx" readonly>
+                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?php echo $secondary?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -285,19 +285,19 @@
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-city">Hall of Residence</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Ex: George Alleyne" readonly>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" value="<?php echo $hall?>" readonly>
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-country">Block Name</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Ex: Attica" readonly>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" value="<?php echo $block?>" readonly>
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Apartment Number</label>
-                        <input type="text" id="input-postal-code" class="form-control form-control-alternative" placeholder="Ex: A12345" readonly>
+                        <input type="text" id="input-postal-code" class="form-control form-control-alternative" value="<?php echo $aptnum ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -308,7 +308,7 @@
                 <div class="pl-lg-4">
                   <div class="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="Write anything wonderful about yourself..." readonly></textarea>
+                    <textarea rows="4" class="form-control form-control-alternative" value="<?php echo $about?>" readonly></textarea>
                   </div>
                 </div>
               </form>

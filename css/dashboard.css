@@ -33,14 +33,15 @@ header p {
   height: 50px;
   width: 100px;
   color:#ffffff;
-  background-color: blue;
+  background-color: #0F52BA;
 }
 
 .top button:hover {
-  background-color: #66686d; 
+  border: solid;
+  background-color:white; 
   transform: scale(1.1);
-  color: #fff; /* Change text color on hover */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: black; /* Change text color on hover */
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
 }
 @keyframes run-text {
   0% {
@@ -87,7 +88,7 @@ header p {
 }
 
 .cards-container :hover{
-  background-color: #0000ff;
+  /* background-color: #0000ff; */
 }
 
 .card1 {

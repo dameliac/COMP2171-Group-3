@@ -10,104 +10,38 @@ $username = $_SESSION['userName']; //get the usertype as well as firstname and l
   $_SESSION['id'] = $userInfo['id'];
   $userid = $userInfo['id'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $id = $_POST["id"];
-    $email = $_POST["email"];
-    $firstName = $_POST["fname"];
-    $middleName = $_POST["mname"];
-    $lastName = $_POST["lname"];
-    $dob = $_POST["dob"];
-    $gender = $_POST["gender"];
-    $primary = $_POST["primary"];
-    $secondary = $_POST["secondary"];
-    $hall = $_POST["hall"];
-    $block = $_POST["block"];
-    $apt = $_POST["apt"];
-    $about = $_POST["about"];
+  $updateFields = [];
+  $types = "";
+  $values = [];
+  
+  foreach ($_POST as $key => $value) {
+      if (!empty($value)) {
+          $updateFields[] = "$key = ?";
+          $types .= "s"; // Assuming all values are strings, adjust as necessary
+          $values[] = $value;
+      }
+  }
+  
+  if (!empty($updateFields)) {
+      $updateParams = implode(", ", $updateFields);
+      $stmt = $mysqli->prepare("UPDATE dorms SET $updateParams WHERE username = $userid");
+      if (!$stmt) {
+          echo "ERROR: Could not prepare statement: " . $mysqli->error;
+      } else {
+          // Bind parameters and execute
+          $stmt->bind_param($types, ...$values); // No need to bind $id
+          $stmt->execute();
+  
+          if ($stmt->errno) {
+              echo "ERROR: Could not execute statement: " . $stmt->error;
+          } else {
+              echo "Data updated successfully.";
+          }
+      }
+  } else {
+      echo "No data to update.";
+  }
 
-    // Check if all input values are empty
-    if (!empty($id) || !empty($email) || !empty($firstName) || !empty($lastName) || !empty($dob) || !empty($gender) || !empty($primary) || !empty($hall) || !empty($block) || !empty($apt) || !empty($about)) {
-        // Dynamically build the update query based on which input values are not empty
-        $updateFields = [];
-        $updateParams = "";
-        $types = "";
-        $values = [];
-        
-        if (!empty($id)) {
-            $updateFields[] = "username = ?";
-            $values[] = $id;
-            $types .= "s";
-        }
-        if (!empty($email)) {
-            $updateFields[] = "email = ?";
-            $values[] = $email;
-            $types .= "s";
-        }
-        if (!empty($firstName)) {
-            $updateFields[] = "firstname = ?";
-            $values[] = $firstName;
-            $types .= "s";
-        }
-        if (!empty($middleName)) {
-            $updateFields[] = "middlename = ?";
-            $values[] = $middleName;
-            $types .= "s";
-        }
-        if (!empty($lastName)) {
-            $updateFields[] = "lastname = ?";
-            $values[] = $lastName;
-            $types .= "s";
-        }if (!empty($dob)) {
-            $updateFields[] = "dateofbirth = ?";
-            $values[] = $dob;
-            $types .= "s";
-        }if (!empty($gender)) {
-            $updateFields[] = "gender = ?";
-            $values[] = $gender;
-            $types .= "s";
-        }if (!empty($primary)) {
-            $updateFields[] = "primarynum = ?";
-            $values[] = $primary;
-            $types .= "s";
-        }if (!empty($secondary)) {
-            $updateFields[] = "secondarynum = ?";
-            $values[] = $secondary;
-            $types .= "s";
-        }if (!empty($hall)) {
-            $updateFields[] = "hall = ?";
-            $values[] = $hall;
-            $types .= "s";
-        }if (!empty($block)) {
-            $updateFields[] = "block = ?";
-            $values[] = $block;
-            $types .= "s";
-        }if (!empty($apt)) {
-            $updateFields[] = "aptnum = ?";
-            $values[] = $apt;
-            $types .= "s";
-        }if (!empty($about)) {
-            $updateFields[] = "about = ?";
-            $values[] = $about;
-            $types .= "s";
-        }
-        
-        $updateParams = implode(", ", $updateFields);
-        
-        // Prepare and execute the update query
-        $stmt = $mysqli->prepare("INSERT INTO ($updateParams) WHERE id = $userid"); // Assuming the ID is 1
-        $stmt->bind_param($types, ...$values);
-        $stmt->execute();
-
-        if ($stmt->errno) {
-            echo "ERROR: Could not able to execute $stmt. " . $stmt->error;
-        } else {
-            echo "Data updated successfully.";
-        }
-    } else {
-        echo "No data to update.";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
