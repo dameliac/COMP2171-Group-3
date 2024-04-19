@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Submission Time: ${details.submission_time}</p>
         <p>Machine: ${details.machine}</p>
         <p>Problem: ${details.typeofissue}</p>
-        <p>Description: ${details.description}</p>
+        <p>Description: ${decodeURIComponent(details.description)}</p>
        
         `;
                     modal.style.display = 'block';

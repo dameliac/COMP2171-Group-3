@@ -299,9 +299,9 @@ h1{
 
 .machineButtons{
     border-color: white;
-    background-color: cadetblue;
+    background-color: #2586d0;
     color: white;
-    font-family: "Lilita One";
+    font-family: open, sans-serif;
     align-items: center;
     display: flex;
     width: 100px;
@@ -309,6 +309,10 @@ h1{
     border-radius: 5px;
     justify-content: center;
     cursor: pointer;
+}
+
+.machineButtons:hover{
+    background-color: #c8c8c8;
 }
 
 .machineDisplayer{

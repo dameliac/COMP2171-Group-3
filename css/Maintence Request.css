@@ -77,7 +77,7 @@ h1{
     text-align: center;
     color: #6F8FAF;
     font-size: 40px;
-    font-family: Poppins;
+    font-family: Open,sans-serif;
     width: max-content;
 }
 
@@ -89,7 +89,7 @@ h1{
 
 
 .heading h2{
-    background-color: 	#A7C7E7;
+    background-color: 	#2586d0;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -189,9 +189,9 @@ input::file-selector-button{
 
 #submit:hover{
     background-color: white;
-    color: #A7C7E7;
+    color: #0F52BA;
     border: solid;
-    border-color: #A7C7E7;
+    border-color: #0F52BA;
 }
 
 
