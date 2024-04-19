@@ -20,13 +20,13 @@
 
 <!-- Four cards with longitudinal separators -->
 <div class="cards-container">
-    <div class="card"><h3>Requests</h3><p>NUMBER INSERT HERE</p></div>
+    <div class="card1"><h3>Requests</h3><p>NUMBER INSERT HERE</p></div>
     <div class="separator"></div>
-    <div class="card"><h3>Tickets</h3><p>NUMBER INSERT HERE</p></div>
+    <div class="card2"><h3>Tickets</h3><p>NUMBER INSERT HERE</p></div>
     <div class="separator"></div>
-    <div class="card"><h3>Inventory</h3><p>NUMBER INSERT HERE</p></div>
+    <div class="card3"><h3>Inventory</h3><p>NUMBER INSERT HERE</p></div>
     <div class="separator"></div>
-    <div class="card"><h3>Forum</h3><p>NUMBER INSERT HERE</p></div>
+    <div class="card4"><h3>Forum</h3><p>NUMBER INSERT HERE</p></div>
 </div>
 
 </body>

@@ -59,7 +59,7 @@ header p {
 }
 
 .mid-text p {
-  animation: pulse-animation 1s infinite alternate;
+  /* animation: pulse-animation 1s infinite alternate; */
   font-size: 48px; /* Adjust the font size as needed */
   font-weight: bold;
 }
@@ -69,8 +69,8 @@ header p {
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflowing text */
   position: relative;
-  animation: run-text 30s ease infinite;
-  background-color: #66686d;
+  /* animation: run-text 30s ease infinite; */
+  /* background-color: #66686d; */
   color: #fff;
 }
 
@@ -90,10 +90,10 @@ header p {
   background-color: #0000ff;
 }
 
-.card {
+.card1 {
   width: 300px;
   height: 250px;
-  background-color: #150e57;
+  background-color: #0F52BA;
   margin: 20px;
   border-radius: 5px;
   display: flex;
@@ -103,10 +103,47 @@ header p {
   color: #ffFFFF;
 }
 
+.card2 {
+  width: 300px;
+  height: 250px;
+  background-color: #060606;
+  margin: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffFFFF;
+}
+
+.card3 {
+  width: 300px;
+  height: 250px;
+  background-color: #C8C8C8;
+  margin: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+}
+
+.card4 {
+  width: 300px;
+  height: 250px;
+  background-color: #90E0EF;
+  margin: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+}
+
 
 .card h3 {
-  background-color: #0000ff;
-  color: white;
   padding: 10px;
   border-radius: 20px;
   margin-bottom: auto; /* Push h3 to the top */
