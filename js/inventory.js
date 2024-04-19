@@ -17,67 +17,8 @@ let OthersProducts = [];
 let inventory = [];
 
 let idAmountDict = {};
-/*-----------QUANTITY VALUE----------- */
 
-/*function addDataToHTML(){
-
-    if (!listProductHTML) {
-        console.error("listProductHTML element not found.");
-        return;
-    }
-    listProductHTML.innerHTML = '';
-    if (listProducts.length > 0){
-        listProducts.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.classList.add('card');
-            newProduct.innerHTML= `
-                    <img src="${product.image}" alt="Example Image">
-                    <div class="card-content">
-                      <h3>${product.name}</h3>
-                      <div class="btn-section">
-                        <button type="submit" value="remove">-</button>
-                        <button type="submit" value="add">+</button>
-                      </div>`;
-            listProductHTML.appendChild(newProduct);
-        })
-    }
-}
-document.addEventListener("DOMContentLoaded", function() {
-    addDataToHTML();
-});
-
-
-const initApp = () => {
-    fetch('product.json')
-    .then(response => response.json())
-    .then(data => {
-        listProducts = data;
-        console.log(listProducts);
-        addDataToHTML();
-    })
-    .catch(error=>{
-        console.error('Error fecthing products',error);
-    });
-}
-initApp();
-
-function fetchProducts() {
-    fetch('product.json')
-        .then(response => response.json())
-        .then(data => {
-            // Display each item in the console
-            data.forEach(item => {
-                listProducts.push(item);
-            });
-            console.log(listProducts);
-            addDataToHTML();
-        })
-        .catch(error => console.error('Error fetching products:', error));
-}
-fetchProducts();
-*/
-
-/*-----------FECTCH--------------*/
+/*-----------FETCH--------------*/
 function fetchProducts() {
     fetch('../json/product.json')
         .then(response => response.json())
@@ -108,32 +49,88 @@ function fetchProducts() {
             console.log("Powder Products:", PowderProducts);
             console.log("Softeners Products:", SoftenersProducts);
             console.log("Other Products:", OthersProducts);
-            console.log("Product",listProducts)
+            console.log("Product", listProducts);
             addDataToHTML();
-           
 
         })
         .catch(error => console.error('Error fetching products:', error));
 }
-fetchProducts();
 
+document.addEventListener("DOMContentLoaded", function() {
+    fetchProducts();
+    addDataToHTML();
 
+    listLiquidProductsHTML.addEventListener('click', (event) => {
+        let positionclick = event.target;
+        let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
+        let product_Quantity = idAmountDict[product_id];
+        if (product_Quantity === undefined) {
+            product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;
+        }
+        if (positionclick.classList.contains('add')) {
+            addtoInventory(product_id, product_Quantity);
+        }
+        if (positionclick.classList.contains('remove')) {
+            removeFromInventory(product_id);
+        }
+    });
 
+    listPowderProductsHTML.addEventListener('click', (event) => {
+        let positionclick = event.target;
+        let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
+        let product_Quantity = idAmountDict[product_id];
+        if (product_Quantity === undefined) {
+            product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;
+        }
+        if (positionclick.classList.contains('add')) {
+            addtoInventory(product_id, product_Quantity);
+        }
+        if (positionclick.classList.contains('remove')) {
+            removeFromInventory(product_id);
+        }
+    });
+
+    listSoftenersProductsHTML.addEventListener('click', (event) => {
+        let positionclick = event.target;
+        let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
+        let product_Quantity = idAmountDict[product_id];
+        if (product_Quantity === undefined) {
+            product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;
+        }
+        if (positionclick.classList.contains('add')) {
+            addtoInventory(product_id, product_Quantity);
+        }
+        if (positionclick.classList.contains('remove')) {
+            removeFromInventory(product_id);
+        }
+    });
+
+    listOthersProductsHTML.addEventListener('click', (event) => {
+        let positionclick = event.target;
+        let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
+        let product_Quantity = idAmountDict[product_id];
+        if (product_Quantity === undefined) {
+            product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;
+        }
+        if (positionclick.classList.contains('add')) {
+            addtoInventory(product_id, product_Quantity);
+        }
+        if (positionclick.classList.contains('remove')) {
+            removeFromInventory(product_id);
+        }
+    });
+
+    submitButton.addEventListener("click", SubmitInventory);
+    cancelButton.addEventListener("click", CancelInventory);
+});
 
 /*----------------LIQUID PRODUCTS-----------------*/
 function addLiquidProductsToHTML() {
-    console.log(listLiquidProductsHTML);
-    if (!listLiquidProductsHTML) {
-        console.error("listLiquidProductsHTML element not found.");
-        return;
-    }
-    
-
     listLiquidProductsHTML.innerHTML = '';
     if (LiquidProducts.length > 0) {
         LiquidProducts.forEach(product => {
             let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
+            newProduct.dataset.id = product.id;
             newProduct.dataset.Quantity = product.Quantity;
             newProduct.classList.add('card');
             newProduct.innerHTML = `
@@ -150,21 +147,13 @@ function addLiquidProductsToHTML() {
     }
 }
 
-
 /*----------------POWDER PRODUCTS-----------------*/
 function addPowderProductsToHTML() {
-    console.log(listPowderProductsHTML);
-    if (!listPowderProductsHTML) {
-        console.error("listPowderProductsHTML element not found.");
-        return;
-    }
-   
-
     listPowderProductsHTML.innerHTML = '';
     if (PowderProducts.length > 0) {
         PowderProducts.forEach(product => {
             let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
+            newProduct.dataset.id = product.id;
             newProduct.classList.add('card');
             newProduct.innerHTML = `
                 <img src="${product.image}" alt="Example Image">
@@ -179,20 +168,14 @@ function addPowderProductsToHTML() {
         });
     }
 }
-/*----------------SOFTERNERS PRODUCTS-----------------*/
+
+/*----------------SOFTENERS PRODUCTS-----------------*/
 function addSoftenersProductsToHTML() {
-    console.log(listSoftenersProductsHTML);
-
-    if (!listSoftenersProductsHTML) {
-        console.error("listSoftenersProductsHTML element not found.");
-        return;
-    }
-
     listSoftenersProductsHTML.innerHTML = '';
     if (SoftenersProducts.length > 0) {
         SoftenersProducts.forEach(product => {
             let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
+            newProduct.dataset.id = product.id;
             newProduct.classList.add('card');
             newProduct.innerHTML = `
                 <img src="${product.image}" alt="Example Image">
@@ -207,19 +190,13 @@ function addSoftenersProductsToHTML() {
         });
     }
 }
+
 function addOthersProductsToHTML() {
-    console.log(listOthersProductsHTML);
-
-    if (!listOthersProductsHTML) {
-        console.error("listOthersProductsHTML element not found.");
-        return;
-    }
-
     listOthersProductsHTML.innerHTML = '';
     if (OthersProducts.length > 0) {
         OthersProducts.forEach(product => {
             let newProduct = document.createElement('div');
-            newProduct.dataset.id= product.id;
+            newProduct.dataset.id = product.id;
             newProduct.classList.add('card');
             newProduct.innerHTML = `
                 <img src="${product.image}" alt="Example Image">
@@ -230,7 +207,7 @@ function addOthersProductsToHTML() {
                         <button type="submit" class="add">+</button>
                     </div>
                 </div>`;
-                listOthersProductsHTML.appendChild(newProduct);
+            listOthersProductsHTML.appendChild(newProduct);
         });
     }
 }
@@ -242,84 +219,18 @@ function addDataToHTML() {
     addOthersProductsToHTML();
 }
 
-body.addEventListener("DOMContentLoaded", function() {
-    addDataToHTML();
-});
-
-
-
-/*----------------BUTTONS-----------------*/
-listLiquidProductsHTML.addEventListener('click',(event) =>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id];
-    if (product_Quantity === undefined) {
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-
-listPowderProductsHTML.addEventListener('click',(event) =>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id]; 
-    if (product_Quantity === undefined) {
-       
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-
-listSoftenersProductsHTML.addEventListener('click',(event) =>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id]; 
-    if (product_Quantity === undefined) {
-      
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-listOthersProductsHTML.addEventListener('click', (event)=>{
-    let positionclick = event.target;
-    let product_id = positionclick.parentElement.parentElement.parentElement.dataset.id;
-    let product_Quantity = idAmountDict[product_id];
-    if (product_Quantity === undefined) {
-
-        product_Quantity = positionclick.parentElement.parentElement.parentElement.dataset.Quantity;}
-    if(positionclick.classList.contains('add')){
-        addtoInventory(product_id,product_Quantity);
-    }
-    if (positionclick.classList.contains('remove')){
-        removeFromInventory(product_id);
-    }
-})
-
-
-const addtoInventory = (product_id,product_Quantity) => {
+const addtoInventory = (product_id, product_Quantity) => {
     const quantityInteger = parseInt(product_Quantity);
     let positionofproduct = inventory.findIndex((value) => value.product_id == product_id);
-    if(inventory.length <= 0){
+    if (inventory.length <= 0) {
         inventory = [{
             product_id: product_id,
             product_Quantity: quantityInteger,
             quantity: 0
         }]
-    } else if(positionofproduct < 0){
+    } else if (positionofproduct < 0) {
         inventory.push({
-            product_id:product_id,
+            product_id: product_id,
             product_Quantity: quantityInteger,
             quantity: 0
         });
@@ -329,11 +240,9 @@ const addtoInventory = (product_id,product_Quantity) => {
     addInventoryToHTML();
 }
 
-
-
 const addInventoryToHTML = () => {
     listInventoryHTML.innerHTML = '';
-    if (inventory.length > 0){
+    if (inventory.length > 0) {
         inventory.forEach(item => {
             let newitem = document.createElement('div');
             newitem.classList.add('item');
@@ -341,7 +250,7 @@ const addInventoryToHTML = () => {
             let position = listProducts.findIndex((value) => value.id == item.product_id);
             let info = listProducts[position];
             let productQuantity = idAmountDict[item.product_id] !== undefined ? idAmountDict[item.product_id] : info.Quantity;
-            newitem.innerHTML =`
+            newitem.innerHTML = `
             <div class="product">
                     <img src="${info.image}" alt="">
                 </div>
@@ -356,7 +265,7 @@ const addInventoryToHTML = () => {
                 <div class="total">
                     ${item.quantity + productQuantity}
                 </div>`;
-        listInventoryHTML.appendChild(newitem);
+            listInventoryHTML.appendChild(newitem);
         })
     }
 }
@@ -365,23 +274,23 @@ const removeInventoryFromHTML = () => {
     inventory.length = 0;
     listInventoryHTML.innerHTML = '';
 };
+
 listInventoryHTML.addEventListener('click', (event) => {
     let positionclick = event.target;
-    if(positionclick.classList.contains('minus') || positionclick.classList.contains('plus')){
+    if (positionclick.classList.contains('minus') || positionclick.classList.contains('plus')) {
         let product_id = positionclick.parentElement.parentElement.dataset.id;
-        /*console.log(product_id);*/
         let type = 'minus';
-        if(positionclick.classList.contains('plus')){
+        if (positionclick.classList.contains('plus')) {
             type = 'plus';
         }
-        changeQuantity(product_id,type); 
+        changeQuantity(product_id, type);
     }
-})
+});
 
 const changeQuantity = (product_id, type) => {
     let positionItem = inventory.findIndex((value) => value.product_id == product_id);
     if (positionItem >= 0) {
-        let negativeThreshold = -1 *(idAmountDict[product_id] || 0); 
+        let negativeThreshold = -1 * (idAmountDict[product_id] || 0);
         switch (type) {
             case 'plus':
                 inventory[positionItem].quantity += 1;
@@ -397,8 +306,6 @@ const changeQuantity = (product_id, type) => {
     addInventoryToHTML();
 };
 
-
-
 const removeFromInventory = (product_id) => {
     let positionOfProduct = inventory.findIndex((value) => value.product_id == product_id);
     if (positionOfProduct >= 0) {
@@ -413,11 +320,8 @@ const removeFromInventory = (product_id) => {
     }
 };
 
-submitButton.addEventListener("click", SubmitInventory);
-cancelButton.addEventListener("click",CancelInventory)
-
-function SubmitInventory(){
-    if(inventory.length > 0){
+function SubmitInventory() {
+    if (inventory.length > 0) {
         inventory.forEach(item => {
             let id = item.product_id;
             let amount = item.quantity + item.product_Quantity;
@@ -428,7 +332,6 @@ function SubmitInventory(){
     removeInventoryFromHTML();
 }
 
-
-function CancelInventory(){
+function CancelInventory() {
     removeInventoryFromHTML();
 }
