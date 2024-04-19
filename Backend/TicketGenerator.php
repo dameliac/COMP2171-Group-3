@@ -117,7 +117,7 @@ if ($adminQuery->execute()){
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <link rel="icon" type="image/logo" href="../img/laundry logo.png">
+
         <link rel="stylesheet" href="../css/app.css">
     </head>
     <body>
