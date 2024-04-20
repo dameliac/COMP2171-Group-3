@@ -23,7 +23,7 @@ $mysqli->close();
     <img src="../img/resident.png" alt="profile pic" id="profile">
     <p><?=$userInfo['first'] . " " . $userInfo['last']?></p>
     <div class="sideLinks"><a href="../Backend/MachineBooking.php">Reservation Schedule</a></div>
-    <div class="sideLinks"><a href="../Frontend/WaitlistDisplay.php">Waitlist</a></div>
+    <div class="sideLinks"><a href="../Frontend/WaitlistDisplay.php">Waitlist Display</a></div>
     <div class="sideLinks"><a href="../Backend/TicketGenerator.php">Ticket View</a></div>
     <div class="sideLinks"><a href="../Frontend/MaintenanceRequestForm.php">Maintenance Request</a></div>
     <div class="sideLinks"><a href="../Backend/bookingcancellation.php">Cancel Reservation</a></div>
