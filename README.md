@@ -1,9 +1,9 @@
-# COMP2140-138-Laundry-Software
+# COMP2171-UniFresh-Laundry-System-Xpress
 
 ## What is Unifresh Laundry Xpress Software?
 
 
-The 138 Student Living Dorms represent the latest student housing options on the UWI Mona Campus. Their accommodations have been praised as the best across the campus for their modern approach compared to other dorms, however, one key aspect that is constantly a complaint across the dorms is the laundry accommodations that have constantly long physical lines for the residents. The 138 Dormitory Laundry system is a self-contained product aimed at enhancing the laundry amenities provided by the 138 Student Living Dormitory for residents. It is not intended to replace an existing system but rather introduce a new, efficient method of managing laundry services within the Dormitory. The software operates as a component of the larger 138 Student Living laundry accommodations system where residents utilize this software for reserving machines instead of waiting physically. The residents then utilize the laundry machines at scheduled times using the 138 Student Living laundry system’s ticketing system for authenticating their time and machine use.
+The 138 Student Living Dorms represent the latest student housing options on the UWI Mona Campus. Their accommodations have been praised as the best across the campus for their modern approach compared to other dorms, however, one key aspect that is constantly a complaint is the laundry accommodations that have continually long physical lines for the residents. The 138 Dormitory Laundry system is a self-contained product aimed at enhancing the laundry amenities provided by the 138 Student Living Dormitory for residents. It is not intended to replace an existing system but rather introduce a new, efficient method of managing laundry services within the Dormitory. The software operates as a component of the larger 138 Student Living laundry accommodations system where residents utilize this software for reserving machines instead of waiting physically. The residents then utilize the laundry machines at scheduled times using the 138 Student Living laundry system’s ticketing system for authenticating their time and machine use.
 
 ## How to Use
 
@@ -14,13 +14,13 @@ The 138 Student Living Dorms represent the latest student housing options on the
 1. Clone the laundry software repository to your local machine:
 
     ```bash
-    git clone https://github.com/dameliac/COMP2140-138-Laundry-Software.git
+    git clone https://github.com/dameliac/UniFresh-Laundry-Xpress-System.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd COMP2140-138-Laundry-Software
+    cd UniFresh-Laundry-Xpress-System
     ```
 
 3. Start a local PHP server:
