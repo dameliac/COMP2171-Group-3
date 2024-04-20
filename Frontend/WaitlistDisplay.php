@@ -68,14 +68,13 @@ if ($machineQuery->execute()) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
-    <link rel="icon" type="image/logo" href="../img/laundry logo.png">
+      
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
     <div id="waitlist-container">
-        <h1>138 Dormitory Laundry</h1>
+        <h1 class="heading">UniFresh Laundry Xpress</h1>
         <h2>Queue Display</h2>
         <h3>NOW SERVING</h3>
         <table id="nowserving-table">
@@ -90,10 +89,11 @@ if ($machineQuery->execute()) {
             <tbody id="serving">
                 <?php foreach ($nowServing as $personWaiting):?>
                     <tr>
+                        
                         <td><?=$personWaiting['ticketNumber']?></td>
                         <td><?=$personWaiting['name']?></td>
                         <td><?=$personWaiting['machine']?></td>
-                        <td><?=$personWaiting['status']?></td>
+                        <td id="serving"><?=$personWaiting['status']?></td>
                     </tr>
                 <?php endforeach;?>
             </tbody>
@@ -115,7 +115,7 @@ if ($machineQuery->execute()) {
                         <td><?=$personWaiting['ticketNumber']?></td>
                         <td><?=$personWaiting['name']?></td>
                         <td><?=$personWaiting['machine']?></td>
-                        <td><?=$personWaiting['status']?></td>
+                        <td id = "waiting"><?=$personWaiting['status']?></td>
                     </tr>
                 <?php endforeach;?>
             </tbody>

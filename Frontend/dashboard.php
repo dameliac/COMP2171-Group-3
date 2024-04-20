@@ -1,115 +1,110 @@
+<?php 
+require_once("../storage/sql_connect.php");
+
+$ticketArray = []; // Initialize an empty array to store tickets
+
+// Fetch tickets from the database
+$result = $mysqli->query("SELECT * FROM reservations");
+
+if ($result) {
+    // Iterate over the result set
+    while ($row = $result->fetch_assoc()) {
+        // Add each ticket to the array
+        $ticketArray[] = $row;
+    }
+    // Free the result set
+    $result->free();
+} else {
+    // Handle error if query fails
+    echo "Error fetching tickets: " . $mysqli->error;
+}
+
+
+$requestArray = []; // Initialize an empty array to store tickets
+
+// Fetch tickets from the database
+$requests = $mysqli->query("SELECT * FROM requests");
+
+if ($result) {
+    // Iterate over the result set
+    while ($row = $requests->fetch_assoc()) {
+        // Add each ticket to the array
+        $requestArray[] = $row;
+    }
+    // Free the result set
+    $requests->free();
+} else {
+    // Handle error if query fails
+    echo "Error fetching tickets: " . $mysqli->error;
+}
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-    <!-- Layout styles -->
+   
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../css/dashboard.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
- 
+</head>
+<body>
 
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
+<!-- <div class ="over"> -->
 
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="d-xl-flex justify-content-between align-items-start">
-              <h2 class="text-dark font-weight-bold mb-2"> Dashboard </h2>
-             
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="d-sm-flex justify-content-between align-items-center transaparent-tab-border {">
-                
-                </div>
-                <div class="tab-content tab-transparent-content">
-                  <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
-                    <div class="row">
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Requests</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">932.00</h2>
-                            <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-lightbulb icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0"></p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark"></h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Tickets</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">756,00</h2>
-                            <div class="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-account-circle icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0"></p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark"></h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Inventory</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">100,38</h2>
-                            <div class="dashboard-progress dashboard-progress-3 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-eye icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0"></p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark"></h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <!-- <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Followers</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">4250k</h2>
-                            <div class="dashboard-progress dashboard-progress-4 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-cube icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0">Decreased since yesterday</p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark">25%</h3>
-                          </div>
-                        </div> -->
-                      </div>
-                    </div>
-                    
 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="footer-inner-wraper">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © UniFresh Laundry Xpress 2024</span>
-                
-              </div>
-            </div>
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+    <div class="top">
+        <p></p>
+        <a href = "aboutus.html" ><button>About Us</button></a>
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="assets/vendors/jquery-circle-progress/js/circle-progress.min.js"></script>
-    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-    <!-- End custom js for this page -->
-  </body>
+
+    <!-- New content -->
+    <div class="mid-text">
+        <p>UniFresh Laundry Xpress</p>
+        <div class="innermid-text"><i>"Where Cleanliness is Our Success!"</i></div>
+    </div>
+
+    <!-- Four cards with longitudinal separators -->
+    <div class="cards-container">
+        <div class="card1"><h3>Requests</h3><img width="35" height="35" src="https://img.icons8.com/ios-filled/50/FFFFFF/request-service.png" alt="request-service"/><p> <?php echo "Overall Quantity: " .count($requestArray) ?></p></div>
+        <div class="separator"></div>
+        <div class="card2"><h3>Tickets</h3><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" alt="two-tickets"/><p><?php echo "Overall Quantity: ". count($ticketArray); ?></p></div>
+        <div class="separator"></div>
+        <div class="card3"><h3>Inventory</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/move-by-trolley.png" alt="move-by-trolley"/><p>
+            <?php
+            $jsonString = file_get_contents('../json/product.json');
+            $data = json_decode($jsonString, true);
+            $overallQuantity = 0;
+
+            // Check if decoding was successful
+            if ($data === null) {
+                // Error handling if JSON decoding failed
+                echo "Error decoding JSON.";
+            } else {
+                foreach ($data as $item) {
+                    $overallQuantity += $item['Quantity'];
+                }
+
+                echo "Overall Quantity: " . $overallQuantity;
+            }
+            ?>
+        </p></div>
+        <div class="separator"></div>
+        <div class="card4"><h3>Forum</h3><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/communication.png" alt="communication" /><p><?php echo "Overall Quantity: 0" ?></p></div>
+    </div>
+
+    <span class = "masked"></span>
+<footer class="footer">
+    <div style="text-align: center;">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>&copy; UniFresh Laundry Xpress 2024. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

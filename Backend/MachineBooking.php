@@ -3,7 +3,7 @@
 session_start();
 require_once("../storage/sql_connect.php");
 //set date function to local time
-date_default_timezone_set('America/New_York');
+date_default_timezone_set('America/Mexico_City');
 
 $query = $mysqli->prepare("SELECT machine, timeslot, user_name, day FROM reservations WHERE day = ?");
 

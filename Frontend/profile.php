@@ -106,7 +106,7 @@
       </div>
     </nav>
     <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../img/background-profile.jpeg); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -260,13 +260,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Phone Number (Primary)</label>
-                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(876)-xxx-xxxx" readonly>
+                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" value ="<?php echo $primary?>" readonly>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Phone Number (Secondary)</label>
-                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(878)-xxx-xxxx" readonly>
+                        <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?php echo $secondary?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -285,19 +285,19 @@
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-city">Hall of Residence</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Ex: George Alleyne" readonly>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" value="<?php echo $hall?>" readonly>
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-country">Block Name</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Ex: Attica" readonly>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" value="<?php echo $block?>" readonly>
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Apartment Number</label>
-                        <input type="text" id="input-postal-code" class="form-control form-control-alternative" placeholder="Ex: A12345" readonly>
+                        <input type="text" id="input-postal-code" class="form-control form-control-alternative" value="<?php echo $aptnum ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -308,7 +308,7 @@
                 <div class="pl-lg-4">
                   <div class="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="Write anything wonderful about yourself..." readonly></textarea>
+                    <textarea rows="4" class="form-control form-control-alternative" value="<?php echo $about?>" readonly></textarea>
                   </div>
                 </div>
               </form>

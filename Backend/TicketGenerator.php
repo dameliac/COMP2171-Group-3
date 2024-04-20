@@ -5,6 +5,9 @@ $user = $_SESSION['userName'];
 require_once("../storage/sql_connect.php");
 
 
+$days = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+
+
 //query to get the usertype of the current user
 $typeQuery = $mysqli->prepare("SELECT usertype FROM dorm WHERE username=?");
 $typeQuery->bind_param("s",$user);
@@ -37,9 +40,12 @@ if ($machineQuery->execute()){
     $ticketID = array();
     $iter = 0;
     while($rows =  $result->fetch_assoc()){
+        $time_24_hour = $rows['timeslot'];
+          // Convert 24-hour time to 12-hour format
+        $time_12_hour = date("h:i A", strtotime($time_24_hour));
         $reservoir[$iter] = $rows["machine"];
-        $dogs[$iter] = $rows['timeslot']; 
-        $three[$iter] = $rows['day'];
+        $dogs[$iter] = $time_12_hour; 
+        $three[$iter] = $days[$rows['day']];
         $ticketID[$iter] = $rows['id'];
         $iter++;
     }   
@@ -57,9 +63,12 @@ if ($adminQuery->execute()){
     $userID = array();
     $i = 0;
     while($rowing =  $resultant->fetch_assoc()){
+        $time_24_hour = $rowing['timeslot'];
+        // Convert 24-hour time to 12-hour format
+      $time_12_hour = date("h:i A", strtotime($time_24_hour));
         $machines[$i] = $rowing["machine"];
-        $time[$i] = $rowing['timeslot']; 
-        $day[$i] = $rowing['day'];
+        $time[$i] = $time_12_hour; 
+        $day[$i] = $days[$rowing['day']];
         $userID[$i] = $rowing['id'];
         $users[$i] = $rowing['user_name'];
         $i++;
@@ -78,7 +87,7 @@ if ($adminQuery->execute()){
         <script src="../js/app.js"></script>
     </head>
     <body>
-        <h1>138 DORMITORY LAUNDRY</h1>
+        <h1>UniFresh Laundry Xpress</h1>
         <div class="ticketBox">
             <?php for($ticket = 0; $ticket < $iter; $ticket++):?>
                 <div class="container">
@@ -108,11 +117,11 @@ if ($adminQuery->execute()){
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <link rel="icon" type="image/logo" href="../img/laundry logo.png">
+
         <link rel="stylesheet" href="../css/app.css">
     </head>
     <body>
-        <h1>138 DORMITORY LAUNDRY</h1>
+        <h1>UniFresh Laundry Xpress</h1>
         <div class="ticketBox">
             <?php for($ticket = 0; $ticket < $i; $ticket++):?>
                 <div class="container">

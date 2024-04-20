@@ -61,7 +61,7 @@ while ($row = $data->fetch_assoc()) {
           <td><?php echo $request['submission_time'] ?></td>
           <td><?php echo $request['machine']; ?></td>
           <td><?php echo $request['typeofissue']; ?></td>
-          <td><?php echo $request['description']; ?></td>
+          <td><?php echo urldecode($request['description']); ?></td>
 
 
 

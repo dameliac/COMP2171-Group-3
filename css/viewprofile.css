@@ -121,9 +121,9 @@
     margin-bottom: .5rem;
   }
   
-  button {
+  /* button {
     border-radius: 0;
-  }
+  } */
   
   button:focus {
     outline: 1px dotted;
@@ -131,7 +131,6 @@
   }
   
   input,
-  button,
   textarea {
     font-family: inherit;
     font-size: inherit;
@@ -139,7 +138,6 @@
     margin: 0;
   }
   
-  button,
   input {
     overflow: visible;
   }
@@ -149,8 +147,7 @@
   }
   
   button,
-  html [type='button'],
-  [type='reset']
+  html [type='reset']
   {
     -webkit-appearance: button;
   }
@@ -1946,8 +1943,8 @@
   }
   
   p {
-    font-size: 1rem;
-    font-weight: 300;
+    /* font-size: 1rem; */
+    /* font-weight: 300; */
     line-height: 1.7;
   }
   
@@ -2007,6 +2004,7 @@
     padding-bottom: .25rem;
     letter-spacing: .04em;
     text-transform: uppercase;
+    margin-left: 40px;
   }
   
   .display-2 span {

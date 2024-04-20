@@ -1,9 +1,10 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body{
     /*background-color: rgb(73, 73, 171);*/
-    font-family: 'Poppins', sans-serif;
-    background-color: lightskyblue;
+    font-family: Open, sans-serif;
+    background-color: #f3f4f6;
 }
 
 .navbar {
@@ -17,7 +18,11 @@ body{
     padding-top: 3.5px;
     border-radius: 5px;
     justify-content: space-evenly;
-    height: 50px;
+    height: 80px;
+}
+
+.name{
+    font-size: 1.5em;
 }
 
 .navbar .name{ 

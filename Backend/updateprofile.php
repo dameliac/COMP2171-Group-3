@@ -3,116 +3,57 @@ session_start();
 include "../Backend/RoleManagementData.php";
 require_once("../storage/sql_connect.php");
 
-$username = $_SESSION['userName']; //get the usertype as well as firstname and lastname of current user
-
-  $userInfo = getTyped($mysqli,$username);
- 
-  $_SESSION['id'] = $userInfo['id'];
-  $userid = $userInfo['id'];
+$update =array();
+$userid = $_SESSION['id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $id = $_POST["id"];
-    $email = $_POST["email"];
-    $firstName = $_POST["fname"];
-    $middleName = $_POST["mname"];
-    $lastName = $_POST["lname"];
-    $dob = $_POST["dob"];
-    $gender = $_POST["gender"];
-    $primary = $_POST["primary"];
-    $secondary = $_POST["secondary"];
-    $hall = $_POST["hall"];
-    $block = $_POST["block"];
-    $apt = $_POST["apt"];
-    $about = $_POST["about"];
+    try {
+        // Retrieve form data
+        $id = !empty($_POST["id"]) ? $_POST["id"] : NULL;
+        $email = !empty($_POST["email"]) ? $_POST["email"] : NULL;
+        $firstName = !empty($_POST["fname"]) ? $_POST["fname"] : NULL;
+        $middleName = !empty($_POST["mname"]) ? $_POST["mname"] : NULL;
+        $lastName = !empty($_POST["lname"]) ? $_POST["lname"] : NULL;
+        $dob = !empty($_POST["dob"]) ? $_POST["dob"] : NULL;
+        $gender = !empty($_POST["gender"]) ? $_POST["gender"] : NULL;
+        $primary = !empty($_POST["primary"]) ? $_POST["primary"] : NULL;
+        $secondary = !empty($_POST["secondary"]) ? $_POST["secondary"] : NULL;
+        $hall = !empty($_POST["hall"]) ? $_POST["hall"] : NULL;
+        $block = !empty($_POST["block"]) ? $_POST["block"] : NULL;
+        $apt = !empty($_POST["apt"]) ? $_POST["apt"] : NULL;
+        $about = !empty($_POST["about"]) ? $_POST["about"] : NULL;
 
-    // Check if all input values are empty
-    if (!empty($id) || !empty($email) || !empty($firstName) || !empty($lastName) || !empty($dob) || !empty($gender) || !empty($primary) || !empty($hall) || !empty($block) || !empty($apt) || !empty($about)) {
-        // Dynamically build the update query based on which input values are not empty
-        $updateFields = [];
-        $updateParams = "";
-        $types = "";
-        $values = [];
-        
-        if (!empty($id)) {
-            $updateFields[] = "username = ?";
-            $values[] = $id;
-            $types .= "s";
-        }
-        if (!empty($email)) {
-            $updateFields[] = "email = ?";
-            $values[] = $email;
-            $types .= "s";
-        }
-        if (!empty($firstName)) {
-            $updateFields[] = "firstname = ?";
-            $values[] = $firstName;
-            $types .= "s";
-        }
-        if (!empty($middleName)) {
-            $updateFields[] = "middlename = ?";
-            $values[] = $middleName;
-            $types .= "s";
-        }
-        if (!empty($lastName)) {
-            $updateFields[] = "lastname = ?";
-            $values[] = $lastName;
-            $types .= "s";
-        }if (!empty($dob)) {
-            $updateFields[] = "dateofbirth = ?";
-            $values[] = $dob;
-            $types .= "s";
-        }if (!empty($gender)) {
-            $updateFields[] = "gender = ?";
-            $values[] = $gender;
-            $types .= "s";
-        }if (!empty($primary)) {
-            $updateFields[] = "primarynum = ?";
-            $values[] = $primary;
-            $types .= "s";
-        }if (!empty($secondary)) {
-            $updateFields[] = "secondarynum = ?";
-            $values[] = $secondary;
-            $types .= "s";
-        }if (!empty($hall)) {
-            $updateFields[] = "hall = ?";
-            $values[] = $hall;
-            $types .= "s";
-        }if (!empty($block)) {
-            $updateFields[] = "block = ?";
-            $values[] = $block;
-            $types .= "s";
-        }if (!empty($apt)) {
-            $updateFields[] = "aptnum = ?";
-            $values[] = $apt;
-            $types .= "s";
-        }if (!empty($about)) {
-            $updateFields[] = "about = ?";
-            $values[] = $about;
-            $types .= "s";
-        }
-        
-        $updateParams = implode(", ", $updateFields);
-        
         // Prepare and execute the update query
-        $stmt = $mysqli->prepare("UPDATE dorm SET $updateParams WHERE id = $userid"); // Assuming the ID is 1
-        $stmt->bind_param($types, ...$values);
-        $stmt->execute();
+        $stmt = $mysqli->prepare("UPDATE dorm SET username = COALESCE(?, username), firstname = COALESCE(?, firstname), middlename = COALESCE(?, middlename), lastname = COALESCE(?, lastname), dateofbirth = COALESCE(?, dateofbirth), gender = COALESCE(?, gender), email = COALESCE(?, email), primarynum = COALESCE(?, primarynum), secondarynum = COALESCE(?, secondarynum), hall = COALESCE(?, hall), block = COALESCE(?, block), aptnum = COALESCE(?, aptnum), about = COALESCE(?, about) WHERE username = ?");
+        
+       // $stmt = $mysqli->prepare("UPDATE dorms SET username ='test'");
 
-        if ($stmt->errno) {
-            echo "ERROR: Could not able to execute $stmt. " . $stmt->error;
-        } else {
-            echo "Data updated successfully.";
+        // Check if the prepare statement succeeded
+        if (!$stmt) {
+            throw new Exception("Prepare statement failed: " . $mysqli->error);
         }
-    } else {
-        echo "No data to update.";
+         //$stmt->bind_param("s",$id);
+        
+        // Bind parameters
+         $stmt->bind_param("ssssssssssssss", $id, $firstName, $middleName, $lastName, $dob, $gender, $email, $primary, $secondary, $hall, $block, $apt, $about, $userid);
+        
+        // Execute the statement
+        if ($stmt->execute()) {
+            var_dump($stmt ->get_result());
+            echo "Records updated successfully.";
+        } else {
+            throw new Exception("Error updating records: " . $stmt->error);
+        }
+    } catch (Exception $e) {
+        echo "An error occurred: " . $e->getMessage();
     }
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="../js/profile.js"></script>
-
 
 <body>
     <div class="card bg-secondary shadow">
@@ -122,25 +63,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3 class="mb-0">My account</h3>
                     </div>
                     <div class="col-4 text-right">
-                    <a href="#" type="submit" class="save btn-sm btn-primary" onclick="Save()">Save</a>
+                    <a href="javascript:void(0)" class="save btn-sm btn-primary" onclick="Save()">Save</a>
                     </div>
                 </div>
                 </div>
                 <div class="card-body">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <form method="POST" id="myform">
                     <h6 class="heading-small text-muted mb-4">User information</h6>
                     <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-lg-6">
                         <div class="form-group focused">
                             <label class="form-control-label" for="input-username">School ID Number:</label>
-                            <input type="number" id="input-username" class="form-control form-control-alternative" minlength="9" maxlength="9" pattern = "[0-9]{9}" placeholder="Identification Number" required>
+                            <input type="number" id="input-username" class="form-control form-control-alternative" minlength="9" maxlength="9" pattern = "[0-9]{9}" placeholder="Identification Number" value="">
                         </div>
                         </div>
                         <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-email">Email address</label>
-                            <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="example@update.com" required>
+                            <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="example@update.com" value="" required>
                         </div>
                         </div>
                     </div>
@@ -151,19 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="input-first-name">First name</label>
-                                <input type="text" id="input-first-name" class="form-control form-control-alternative"required placeholder="Firstname">
+                                <input type="text" id="input-first-name" class="form-control form-control-alternative"required placeholder="Firstname" value="">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="input-middle-name">Middle name</label>
-                                <input type="text" id="input-middle-name" class="form-control form-control-alternative" placeholder="Middlename" required>
+                                <input type="text" id="input-middle-name" class="form-control form-control-alternative" placeholder="Middlename" value="" required>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="input-last-name">Last name</label>
-                                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Lastname" required>
+                                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Lastname" value="" required>
                             </div>
                         </div>
                     </div>
@@ -171,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col-lg-6">
                             <div class="form-group focused">
                             <label class="form-control-label" for="input-last-name">Date of Birth</label>
-                            <input type="date" id="input-date-birth" class="form-control form-control-alternative" min ="2006-01-01" max= "1924-12-31" placeholder="yyyy-mm-dd" required>
+                            <input type="date" id="input-date-birth" class="form-control form-control-alternative" min ="2006-01-01" max= "1924-12-31" placeholder="yyyy-mm-dd" value="" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -195,13 +136,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-country">Phone Number (Primary)</label>
-                            <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(876)-xxx-xxxx" required>
+                            <input type="tel" id="input-postal-code" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(876)-xxx-xxxx" value="" required>
                         </div>
                         </div>
                         <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="input-country">Phone Number (Secondary)</label>
-                            <input type="tel" id="input-postal-code-2" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(878)-xxx-xxxx">
+                            <input type="tel" id="input-postal-code-2" class="form-control form-control-alternative" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1(878)-xxx-xxxx" value="" >
                         </div>
                         </div>
                     </div>
@@ -220,19 +161,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col-lg-4">
                         <div class="form-group focused">
                             <label class="form-control-label" for="input-city">Hall of Residence</label>
-                            <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Ex: George Alleyne" required>
+                            <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Ex: George Alleyne" value="" required>
                         </div>
                         </div>
                         <div class="col-lg-4">
                         <div class="form-group focused">
                             <label class="form-control-label" for="input-country">Block Name</label>
-                            <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Ex: Attica" required>
+                            <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Ex: Attica" value="" required>
                         </div>
                         </div>
                         <div class="col-lg-4">
                         <div class="form-group">
                             <label class="form-control-label" for="input-country">Apartment Number</label>
-                            <input type="text" id="input-apt" class="form-control form-control-alternative" placeholder="Ex: A12345" required>
+                            <input type="text" id="input-apt" class="form-control form-control-alternative" placeholder="Ex: A12345" value="" required>
                         </div>
                         </div>
                     </div>
@@ -251,4 +192,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             </div>
 </body>
+<script src="../js/profile.js"></script>
 </html>
